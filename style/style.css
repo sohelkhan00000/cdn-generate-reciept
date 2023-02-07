@@ -2360,6 +2360,10 @@ article {
 #main {
 	padding: 20px 0px;
 }
+#main.section
+{
+	padding-top:0px;
+}
 
 /* =WooCommerce
 -------------------------------------------------------------- */
