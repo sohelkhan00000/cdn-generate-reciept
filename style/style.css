@@ -576,13 +576,7 @@ body,input,textarea,article {
 body {
 	border-top: 6px solid #57ad68;
 }
-hr {
-	border-color: #eaeaea;
-	border-style: solid none none;
-	border-width: 1px 0 0;
-	height: 0;
-	margin: 0 0 40px;
-}
+
 .wrapper {
 	max-width: 1018px;
 	margin: 0 auto;
@@ -793,10 +787,10 @@ blockquote cite {
 	margin-left: 12px;
 }
 /* Forms */
-input,textarea {
+/* input,textarea {
 	border-radius: 0px;
-}
-input[type="text"],input[type="email"],input[type="search"],input[type="password"],textarea {
+} */
+/* input[type="text"],input[type="email"],input[type="search"],input[type="password"],textarea {
 	-moz-appearance: none !important;
 	-webkit-appearance: none !important;
 	appearance: none !important;
@@ -808,7 +802,7 @@ input[type=text],input[type=password],input[type="email"],textarea {
 	background-color: #f9f9f9;
 	border-radius: 3px;
 	padding: 4px 0;
-}
+} */
 textarea {
 	width: 100%;
 }
@@ -2659,4 +2653,25 @@ article {
 	top: 5px;
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
+}
+
+
+/*  add id here to working date picker */
+input#dataPickerFrom,
+input#dataPickerTo {
+	display: inline-block;
+	position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	background: transparent;
+	bottom: 0;
+	color: transparent;
+	cursor: pointer;
+	height: auto;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: auto;
 }
