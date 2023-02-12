@@ -131,7 +131,7 @@ function checkValidation(value, type, name, callBack) {
             return false;
 
         }
-        else if (DisgitFinder.test(value) || NonWordCorrentorFinder.test(value)) {
+        else if (DisgitFinder.test(value)) {
 
             callBack(false, name + " cannot contain numbers and space!");
             return false;
@@ -318,8 +318,12 @@ function addDynamicData() {
                 document.querySelector("#invoice" + (index + 1) + "  #pdfReceiptNumber").innerHTML = (index + 1);
                 document.querySelector("#invoice" + (index + 1) + "  #pdfGenerateDate").innerHTML = today;
 
-                if (index == 2) {
-                    document.querySelector("#invoice" + (index + 1)).style.marginBottom = "100px";
+                if ((index + 1) % 3 == 0 && index != 0) {
+                    
+                    const pageBreaker = document.createElement("div");
+                    pageBreaker.setAttribute("class","html2pdf__page-break");
+                    mainContainer.appendChild(pageBreaker);
+                   // document.querySelector("#invoice" + index).style.marginBottom = "100px";
                 }
 
 
@@ -342,6 +346,11 @@ function resetPage(callBack){
     const elements = document.getElementsByClassName("invoice");
     while (elements.length > 1) {
         elements[1].parentNode.removeChild(elements[1]);
+    }
+
+    const pageBreaker = document.getElementsByClassName("html2pdf__page-break");
+    while (pageBreaker.length > 1) {
+        pageBreaker[1].parentNode.removeChild(pageBreaker[1]);
     }
 }
 
@@ -373,7 +382,7 @@ function generatePDF() {
 
         //  if (document.documentElement.scrollTop == 0 || document.body.scrollTop == 0 || true) {
         //scrollready = true;
-        html2pdf().set(options).from(element).toPdf().save("file").then((data) => {
+        html2pdf().set(options).from(element).toPdf().save("Rent slip by Generate Receipt").then((data) => {
             // console.log("PDF success");
             resetPage();
        
