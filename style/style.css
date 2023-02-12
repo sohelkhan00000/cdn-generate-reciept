@@ -2352,7 +2352,7 @@ article {
 	box-shadow: none;
 }
 #main {
-	padding: 20px 0px;
+	padding: 25px 0px;
 }
 #main.section
 {
@@ -2414,9 +2414,9 @@ article {
 		margin: 0;
 		width: 100%;
 	}
-	#site-logo {
+	/* #site-logo {
 		margin-left: 20px;
-	}
+	} */
 	.page-title {
 		padding-left: 30px;
 	}
@@ -2435,6 +2435,12 @@ article {
 	}
 	#footerarea .widget_info,#footerarea .widget_text {
 		margin-bottom: 30px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#site-logo{
+		margin-top: 0px;
 	}
 }
 

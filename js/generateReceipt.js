@@ -336,7 +336,7 @@ function addDynamicData() {
 
     })
     //generatePDF();
-    console.log(allDates);
+   // console.log(allDates);
 }
 
 function resetPage(callBack){
