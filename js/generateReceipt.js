@@ -3,6 +3,7 @@
 
 let xstartDate ;
 let xendDate ;
+let isControlsValid = true;
 
 const knuncleNumbers = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
@@ -109,11 +110,51 @@ function allDate(monthList) {
 
 }
 
-function validate(){
+function checkValidation(value, type,name,  callBack) {
+
+    if (type == "Name") {
+        var DisgitFinder = /\d/g;
+        var NonWordCorrentorFinder = /\W/g;
+
+        if (value == "") {
+
+            callBack(false, name +" cannot be  empty!");
+            return false;
+        }
+        else if (value.length > 35) {
+
+            callBack(false, name +" cannot be more than 35 characters!");
+            return false;
+
+        }
+        else if (DisgitFinder.test(value) || NonWordCorrentorFinder.test(value)) {
+
+            callBack(false, name +" cannot contain numbers and space!");
+            return false;
+
+        }
+
+        callBack(true, name +" validated successfully!");
+        return true;
+    }
+    else if(type == "Empty")
+    {
+        if(value == "")
+        {
+           // EleValidationMassage.innerHTML ="Field cannot be empty!"
+            callBack(false, name +" cannot be empty!");
+            return false;
+        }
+        //EleValidationMassage.innerHTML =""
+        callBack(true, name +" validated successfully!");
+        return true;
+    }
 
 }
 
+
 function addDynamicData(){
+
     // user contrls
     let inputRenterName = document.getElementById("inputRenterName");
     let inputRent = document.getElementById("inputRent");
@@ -123,6 +164,96 @@ function addDynamicData(){
     let flexRadioMonthly = document.getElementById("flexRadioMonthly");
     let dataPickerFrom = document.getElementById("dataPickerFrom");
     let dataPickerTo = document.getElementById("dataPickerTo");
+
+
+   // validation error message Control
+    let pdfNameError = document.getElementById("pdfNameError");
+    let pdfRentError = document.getElementById("pdfRentError");
+    let pdfAddressError = document.getElementById("pdfAddressError");
+    let pdfOwnerError = document.getElementById("pdfOwnerError");
+    let pdfOwnerPanError = document.getElementById("pdfOwnerPanError");
+    let pdfDateFromError = document.getElementById("pdfDateFromError");
+    let pdfDateToError = document.getElementById("pdfDateToError");
+
+   
+    
+
+    checkValidation(inputRenterName.value, "Name","Name", function (nameSuc, nameMsg) {
+        if (!nameSuc) {
+            pdfNameError.innerHTML = nameMsg;
+            pdfNameError.style.display = "block"
+        }
+        else
+        {
+            pdfNameError.style.display = "none";
+        }
+    });
+
+    checkValidation(inputRent.value, "Empty","Rent", function (nameSuc, nameMsg) {
+        if (!nameSuc) {
+            pdfRentError.innerHTML = nameMsg;
+            pdfRentError.style.display = "block"
+        }
+        else
+        {
+            pdfRentError.style.display = "none"
+        }
+    });
+
+    checkValidation(textboxAddress.value, "Empty", "Address", function (nameSuc, nameMsg) {
+        if (!nameSuc) {
+            pdfAddressError.innerHTML = nameMsg;
+            pdfAddressError.style.display = "block"
+        }
+        else{
+            pdfAddressError.style.display = "none"
+        }
+    });
+
+    checkValidation(inputOwnerName.value, "Name","Owner's name", function (nameSuc, nameMsg) {
+        if (!nameSuc) {
+            pdfOwnerError.innerHTML = nameMsg;
+            pdfOwnerError.style.display = "block"
+        }
+        else{
+            pdfOwnerError.style.display = "none"
+        }
+    });
+
+    checkValidation(dataPickerFrom.value, "Empty","Date", function (nameSuc, nameMsg) {
+        if (!nameSuc) {
+            pdfDateFromError.innerHTML = nameMsg;
+            pdfDateFromError.style.display = "block"
+        }
+        else{
+            pdfDateFromError.style.display = "none"
+        }
+    });
+
+    checkValidation(dataPickerTo.value, "Empty","Date", function (nameSuc, nameMsg) {
+        if (!nameSuc) {
+            pdfDateToError.innerHTML = nameMsg;
+            pdfDateToError.style.display = "block"
+        }
+        else{
+            pdfDateToError.style.display = "none"
+        }
+    });
+     
+
+    let checkAllvalidation = document.getElementsByClassName("validation-message");
+    isControlsValid = true;
+
+    Object.keys(checkAllvalidation).some(function (k) {
+        if (checkAllvalidation[k].style.display == "block") {
+            // do something
+            isControlsValid = false
+            return true;
+        }
+    });
+
+    
+   
 
     //  pdf controls
     let pdfRenterName = document.getElementById("pdfRenterName");
@@ -212,14 +343,17 @@ function addDynamicData(){
 function generatePDF() {
     addDynamicData()
     // scroller related to generate pdf.
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0;
+
     // let scrollready = false;
     var scrollThread, scrollTimeout,
         scrollTimeout = 1000;
 
     
 
+    if(isControlsValid)
+    {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0;
 
     const element = document.getElementById('allSlips');
     var options = {
@@ -249,6 +383,8 @@ function generatePDF() {
         }
 
     }, scrollTimeout);
+
+    }
 
     // Choose the element that your content will be rendered to.
     //const element = document.getElementById('invoicetest');
