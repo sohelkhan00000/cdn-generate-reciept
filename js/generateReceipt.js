@@ -1,18 +1,22 @@
 // let xstartDate = "2013-01-01";
 // let xendDate = "2013-02-28";
 
-let xstartDate ;
-let xendDate ;
+let xstartDate;
+let xendDate;
 let isControlsValid = true;
+
+const toggleSpinner = document.querySelector("#downloadPDF .spinner-grow");
+const toggleDownload = document.querySelector("#downloadPDF .download-text");
+const button = document.getElementById('downloadPDF');
 
 const knuncleNumbers = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 function getMonthShortName(monthNo) {
     const date = new Date();
     date.setMonth(monthNo - 1);
-  
+
     return date.toLocaleString('en-US', { month: 'short' });
-  }
+}
 
 function getLastDate(currentDate) {
     // let currDate = currentDate;
@@ -110,7 +114,7 @@ function allDate(monthList) {
 
 }
 
-function checkValidation(value, type,name,  callBack) {
+function checkValidation(value, type, name, callBack) {
 
     if (type == "Name") {
         var DisgitFinder = /\d/g;
@@ -118,42 +122,39 @@ function checkValidation(value, type,name,  callBack) {
 
         if (value == "") {
 
-            callBack(false, name +" cannot be  empty!");
+            callBack(false, name + " cannot be  empty!");
             return false;
         }
         else if (value.length > 35) {
 
-            callBack(false, name +" cannot be more than 35 characters!");
+            callBack(false, name + " cannot be more than 35 characters!");
             return false;
 
         }
         else if (DisgitFinder.test(value) || NonWordCorrentorFinder.test(value)) {
 
-            callBack(false, name +" cannot contain numbers and space!");
+            callBack(false, name + " cannot contain numbers and space!");
             return false;
 
         }
 
-        callBack(true, name +" validated successfully!");
+        callBack(true, name + " validated successfully!");
         return true;
     }
-    else if(type == "Empty")
-    {
-        if(value == "")
-        {
-           // EleValidationMassage.innerHTML ="Field cannot be empty!"
-            callBack(false, name +" cannot be empty!");
+    else if (type == "Empty") {
+        if (value == "") {
+            // EleValidationMassage.innerHTML ="Field cannot be empty!"
+            callBack(false, name + " cannot be empty!");
             return false;
         }
         //EleValidationMassage.innerHTML =""
-        callBack(true, name +" validated successfully!");
+        callBack(true, name + " validated successfully!");
         return true;
     }
 
 }
 
-
-function addDynamicData(){
+function addDynamicData() {
 
     // user contrls
     let inputRenterName = document.getElementById("inputRenterName");
@@ -166,7 +167,7 @@ function addDynamicData(){
     let dataPickerTo = document.getElementById("dataPickerTo");
 
 
-   // validation error message Control
+    // validation error message Control
     let pdfNameError = document.getElementById("pdfNameError");
     let pdfRentError = document.getElementById("pdfRentError");
     let pdfAddressError = document.getElementById("pdfAddressError");
@@ -175,27 +176,25 @@ function addDynamicData(){
     let pdfDateFromError = document.getElementById("pdfDateFromError");
     let pdfDateToError = document.getElementById("pdfDateToError");
 
-   
-    
 
-    checkValidation(inputRenterName.value, "Name","Name", function (nameSuc, nameMsg) {
+
+
+    checkValidation(inputRenterName.value, "Name", "Name", function (nameSuc, nameMsg) {
         if (!nameSuc) {
             pdfNameError.innerHTML = nameMsg;
             pdfNameError.style.display = "block"
         }
-        else
-        {
+        else {
             pdfNameError.style.display = "none";
         }
     });
 
-    checkValidation(inputRent.value, "Empty","Rent", function (nameSuc, nameMsg) {
+    checkValidation(inputRent.value, "Empty", "Rent", function (nameSuc, nameMsg) {
         if (!nameSuc) {
             pdfRentError.innerHTML = nameMsg;
             pdfRentError.style.display = "block"
         }
-        else
-        {
+        else {
             pdfRentError.style.display = "none"
         }
     });
@@ -205,41 +204,41 @@ function addDynamicData(){
             pdfAddressError.innerHTML = nameMsg;
             pdfAddressError.style.display = "block"
         }
-        else{
+        else {
             pdfAddressError.style.display = "none"
         }
     });
 
-    checkValidation(inputOwnerName.value, "Name","Owner's name", function (nameSuc, nameMsg) {
+    checkValidation(inputOwnerName.value, "Name", "Owner's name", function (nameSuc, nameMsg) {
         if (!nameSuc) {
             pdfOwnerError.innerHTML = nameMsg;
             pdfOwnerError.style.display = "block"
         }
-        else{
+        else {
             pdfOwnerError.style.display = "none"
         }
     });
 
-    checkValidation(dataPickerFrom.value, "Empty","Date", function (nameSuc, nameMsg) {
+    checkValidation(dataPickerFrom.value, "Empty", "Date", function (nameSuc, nameMsg) {
         if (!nameSuc) {
             pdfDateFromError.innerHTML = nameMsg;
             pdfDateFromError.style.display = "block"
         }
-        else{
+        else {
             pdfDateFromError.style.display = "none"
         }
     });
 
-    checkValidation(dataPickerTo.value, "Empty","Date", function (nameSuc, nameMsg) {
+    checkValidation(dataPickerTo.value, "Empty", "Date", function (nameSuc, nameMsg) {
         if (!nameSuc) {
             pdfDateToError.innerHTML = nameMsg;
             pdfDateToError.style.display = "block"
         }
-        else{
+        else {
             pdfDateToError.style.display = "none"
         }
     });
-     
+
 
     let checkAllvalidation = document.getElementsByClassName("validation-message");
     isControlsValid = true;
@@ -252,8 +251,8 @@ function addDynamicData(){
         }
     });
 
-    
-   
+
+
 
     //  pdf controls
     let pdfRenterName = document.getElementById("pdfRenterName");
@@ -278,60 +277,56 @@ function addDynamicData(){
 
     xstartDate = dataPickerFrom.value
     xendDate = dataPickerTo.value
-// let xstartDate = "2013-01-01";
-// let xendDate = "2013-02-28";
-   
+    // let xstartDate = "2013-01-01";
+    // let xendDate = "2013-02-28";
+
 
     //pdfDateFrom.innerHTML = dataPickerFrom.value;
     //pdfDateTo.innerHTML = dataPickerTo.value;
 
     let allDates = allDate(dateRange(xstartDate, xendDate));
     let today = new Date().toString()
-    today = today.slice(4,15)
-    allDates.forEach((indexValue, index, array)=>{
-        if(array.length == 1)
-        {
-           
+    today = today.slice(4, 15)
+    allDates.forEach((indexValue, index, array) => {
+        if (array.length == 1) {
+
             pdfDateFrom.innerHTML = indexValue.start;
             pdfDateTo.innerHTML = indexValue.end;
-            pdfCurrentMonth.innerHTML = getMonthShortName( indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
+            pdfCurrentMonth.innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
             pdfReceiptNumber.innerHTML = "1";
             pdfGenerateDate.innerHTML = today;
         }
-        else{
+        else {
 
-            if(index == 0)
-            {
+            if (index == 0) {
                 pdfDateFrom.innerHTML = indexValue.start;
                 pdfDateTo.innerHTML = indexValue.end;
-                pdfCurrentMonth.innerHTML = getMonthShortName( indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
+                pdfCurrentMonth.innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
                 pdfReceiptNumber.innerHTML = "1";
                 pdfGenerateDate.innerHTML = today;
             }
-            else
-            {
+            else {
                 var mainContainer = document.getElementById('allSlips');
                 var element = document.getElementById('invoice1');
                 var element2 = element.cloneNode(true);
                 element2.id = "invoice" + (index + 1);
                 mainContainer.appendChild(element2);
 
-                document.querySelector("#invoice"+(index + 1) + "  #pdfDateFrom").innerHTML = indexValue.start;
-                document.querySelector("#invoice"+(index + 1) + "  #pdfDateTo").innerHTML = indexValue.end;
-                document.querySelector("#invoice"+(index + 1) + "  #pdfCurrentMonth").innerHTML = getMonthShortName( indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
-                document.querySelector("#invoice"+(index + 1) + "  #pdfReceiptNumber").innerHTML = (index + 1);
-                document.querySelector("#invoice"+(index + 1) + "  #pdfGenerateDate").innerHTML = today;
+                document.querySelector("#invoice" + (index + 1) + "  #pdfDateFrom").innerHTML = indexValue.start;
+                document.querySelector("#invoice" + (index + 1) + "  #pdfDateTo").innerHTML = indexValue.end;
+                document.querySelector("#invoice" + (index + 1) + "  #pdfCurrentMonth").innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
+                document.querySelector("#invoice" + (index + 1) + "  #pdfReceiptNumber").innerHTML = (index + 1);
+                document.querySelector("#invoice" + (index + 1) + "  #pdfGenerateDate").innerHTML = today;
 
-                if(index == 2)
-                {
-                    document.querySelector("#invoice"+(index + 1)).style.marginBottom = "100px";
+                if (index == 2) {
+                    document.querySelector("#invoice" + (index + 1)).style.marginBottom = "100px";
                 }
-              
+
 
             }
 
 
-           // document.querySelector("#invoice2 #receiptSartDate").style.color = "red";
+            // document.querySelector("#invoice2 #receiptSartDate").style.color = "red";
         }
 
 
@@ -340,49 +335,56 @@ function addDynamicData(){
     console.log(allDates);
 }
 
+function resetPage(callBack){
+
+    toggleSpinner.style.display = "none";
+    toggleDownload.innerHTML = "Download";
+    const elements = document.getElementsByClassName("invoice");
+    while (elements.length > 1) {
+        elements[1].parentNode.removeChild(elements[1]);
+    }
+}
+
 function generatePDF() {
     addDynamicData()
-    // scroller related to generate pdf.
 
-    // let scrollready = false;
-    var scrollThread, scrollTimeout,
-        scrollTimeout = 1000;
+    // var scrollThread, scrollTimeout,
+    //     scrollTimeout = 1000;
+    if (isControlsValid) {
 
-    
+        toggleSpinner.style.display = "inline-block";
+        toggleDownload.innerHTML = "PDF Generating...";
 
-    if(isControlsValid)
-    {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0;
+        //  document.body.scrollTop = 0; // For Safari
+        // document.documentElement.scrollTop = 0;
 
-    const element = document.getElementById('allSlips');
-    var options = {
-        jsPDF: {
-            format: 'a4'
-        },
-        html2canvas: { letterRendering: true, useCORS: true, logging: true },
-        margin: 0,
-        image: { type: 'jpeg', quality: 1 }
-    };
+        const element = document.getElementById('allSlips');
+        var options = {
+            jsPDF: {
+                format: 'a4',
+                orientation: 'portrait'
+            },
+            html2canvas: { letterRendering: true, useCORS: true, logging: true, scrollX: 0, scrollY: 0 },
+            margin: 0,
+            image: { type: 'jpeg', quality: 2 }
+        };
 
-    scrollThread = setInterval(() => {
+        // scrollThread = setInterval(() => {
 
-        if (document.documentElement.scrollTop == 0 || document.body.scrollTop == 0) {
-            //scrollready = true;
-            html2pdf().set(options).from(element).toPdf().save("file").then((data)=>{
-                    console.log("PDF success ");
-                    const elements = document.getElementsByClassName("invoice");
-                    while(elements.length > 1){
-                        elements[1].parentNode.removeChild(elements[1]);
-                    }
+        //  if (document.documentElement.scrollTop == 0 || document.body.scrollTop == 0 || true) {
+        //scrollready = true;
+        html2pdf().set(options).from(element).toPdf().save("file").then((data) => {
+            // console.log("PDF success");
+            resetPage();
+       
 
-            }).catch((err)=>{
-                console.log("PDF Error "+ err)
-            })
-            clearInterval(scrollThread)
-        }
+        }).catch((err) => {
+            console.log("PDF Error " + err)
+        })
+      //  clearInterval(scrollThread);
+           //}
 
-    }, scrollTimeout);
+        //   }, scrollTimeout);
 
     }
 
@@ -395,7 +397,7 @@ function generatePDF() {
 }
 
 
-const button = document.getElementById('downloadPDF');
+
 
 button.addEventListener('click', generatePDF);
 
