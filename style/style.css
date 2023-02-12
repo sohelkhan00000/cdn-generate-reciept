@@ -2439,7 +2439,7 @@ article {
 }
 
 /* All Mobile Portrait size smaller than 768 (devices and browsers) */
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
 	hr {
 		margin-bottom: 30px;
 	}
@@ -2529,6 +2529,7 @@ article {
 		padding-bottom: 0px;
 	}
 	/* Column */
+	
 	.column {
 		margin-left: 0;
 	}
@@ -2594,7 +2595,7 @@ article {
 		text-align: center;
 		float: none;
 	}
-}
+} */
 
 /* All Mobile landscape size and All Mini Tablet Portrait size smaller than standard 768 and larger than 480 (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
