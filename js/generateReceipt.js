@@ -1,6 +1,3 @@
-// let xstartDate = "2013-01-01";
-// let xendDate = "2013-02-28";
-
 let xstartDate;
 let xendDate;
 let isControlsValid = true;
@@ -11,10 +8,19 @@ const button = document.getElementById('downloadPDF');
 
 const knuncleNumbers = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
+function countMonths(d1, d2) {
+    d1 = new Date(d1);
+    d2 = new Date(d2);
+    var months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth();
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+}
+
 function getMonthShortName(monthNo) {
     const date = new Date();
     date.setMonth(monthNo - 1);
-
     return date.toLocaleString('en-US', { month: 'short' });
 }
 
@@ -26,92 +32,109 @@ function getLastDate(currentDate) {
     return currentDate
 }
 
-function dateRange(startDate, endDate) {
-    var start = startDate.split('-');
-    var end = endDate.split('-');
-    var startYear = parseInt(start[0]);
-    var endYear = parseInt(end[0]);
-    var dates = [];
+function countDays(firstDate, lastDate)
+{
+         // To set two dates to two variables
+    var date1 = new Date(firstDate);
+    var date2 = new Date(lastDate);
+      
+    // To calculate the time difference of two dates
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+      
+    // To calculate the no. of days between two dates
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+      
+    //To display the final no. of days (result)
+    //console.log( Difference_In_Days);
 
-    for (var i = startYear; i <= endYear; i++) {
-        var endMonth = i != endYear ? 11 : parseInt(end[1]) - 1;
-        var startMon = i === startYear ? parseInt(start[1]) - 1 : 0;
-        for (var j = startMon; j <= endMonth; j = j > 12 ? j % 12 || 11 : j + 1) {
-            var month = j + 1;
-            var displayMonth = month < 10 ? '0' + month : month;
-            dates.push([i, displayMonth, '01'].join('-'));
-        }
-    }
-    return dates;
+   return Difference_In_Days
 }
 
-function allDate(monthList) {
+function addMonths(paraStartDate, paraEndDate, monthSlot) {
+    Date.isLeapYear = function (year) {
+        return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+    };
 
-    var startDateObject = new Date(xstartDate);
-    var endDateObject = new Date(xendDate);
+    Date.getDaysInMonth = function (year, month) {
+        return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+    };
 
-    let startKnuncle = knuncleNumbers[startDateObject.getMonth()];
-    let endKnuncle = knuncleNumbers[endDateObject.getMonth()];
+    Date.prototype.isLeapYear = function () {
+        return Date.isLeapYear(this.getFullYear());
+    };
 
-    let startDaysCount = startDateObject.getDate();
-    let endDaysCount = endDateObject.getDate();
+    Date.prototype.getDaysInMonth = function () {
+        return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
+    };
 
-    var datesObject = [];
-    // let isFirstMonthMerge = false;
+    Date.prototype.addMonths = function (value) {
+        var n = this.getDate();
+        this.setDate(1);
+        this.setMonth(this.getMonth() + value);
+        this.setDate(Math.min(n, this.getDaysInMonth()));
+        return this;
+    };
 
-    monthList.forEach(function (i, idx, array) {
+    var startDate = new Date(paraStartDate);
+    var endDate = new Date(paraEndDate);
+    var dataObject = [];
+    var storeLastDate;
+    var myDate = new Date(startDate);
+    var isLoop = false;
 
-        if (array.length == 1) {
+    var result1 = myDate.addMonths(monthSlot);
+    storeLastDate = new Date(result1)
+    result1.setDate(result1.getDate() - 1);
 
-            datesObject = [{ start: xstartDate, end: xendDate }]
-            return true;
-        }
-        else if (array.length == 2) {
 
-            if (startDaysCount > 1 || endDaysCount < endKnuncle) {
+    if (endDate <= storeLastDate) {
+        dataObject[0] = { start: startDate, end: endDate }
+        isLoop = false;
+        // exit loop
+    }
+    else {
+        dataObject[0] = { start: startDate, end: result1 }
+        isLoop = true
+        // loop continue
+    }
 
-                datesObject = [{ start: xstartDate, end: xendDate }]
+
+    if (isLoop) {
+
+        for (let i = 1; dataObject[dataObject.length - 1].end < endDate; i++) {
+
+            let firstDate = new Date(storeLastDate)
+            myDate = new Date(storeLastDate);
+            var result1 = myDate.addMonths(monthSlot);
+            storeLastDate = new Date(result1)
+            result1.setDate(result1.getDate() - 1);
+
+
+            if (endDate <= storeLastDate) {
+                dataObject[i] = { start: firstDate, end: endDate }
+
+                // exit loop
             }
             else {
-                datesObject = [
-                    { start: array[0], end: getLastDate(array[0]) },
-                    { start: array[1], end: getLastDate(array[1]) },
-                ]
 
+                dataObject[i] = { start: firstDate, end: result1 }
+                // loop continue
             }
-            return true;
+
         }
-        else {
 
-            // this is for date to date cycle for future
-            // if( (startDaysCount == startKnuncle) && (endDaysCount == endKnuncle))
-            // {
-            //         console.log("date matched")
-            // }
-            // else if (startDaysCount == endDaysCount)
-            // {
-            //     console.log("date matched with same date")
-            // }
+    }
 
+    /* section 2 */
 
-            if (idx === 0) {
-                datesObject[0] = { start: xstartDate, end: getLastDate(array[idx]) }
-                return true
-            } else
+    // format all dates to YYYY-MM-DD
+    dataObject.forEach((indexValue, i, array) => {
 
-                if (idx === array.length - 1) {
-                    datesObject[idx] = { start: array[idx], end: xendDate }
-                    return true
-                }
-                else {
-                    datesObject.push({ start: array[idx], end: getLastDate(array[idx]) });
-                }
-        }
+        array[i] = { start: indexValue.start.toLocaleDateString("af-ZA", { year: 'numeric', month: '2-digit', day: '2-digit' }), end: indexValue.end.toLocaleDateString("af-ZA", { year: 'numeric', month: '2-digit', day: '2-digit' }) }
 
     });
 
-    return datesObject;
-
+    return dataObject;
 }
 
 function checkValidation(value, type, name, callBack) {
@@ -155,6 +178,7 @@ function checkValidation(value, type, name, callBack) {
 }
 
 function addDynamicData() {
+
 
     // user contrls
     let inputRenterName = document.getElementById("inputRenterName");
@@ -276,29 +300,27 @@ function addDynamicData() {
     pdfLandlordPan.innerHTML = inputOwnerPan.value;
 
     xstartDate = dataPickerFrom.value
-    xendDate = dataPickerTo.value
-    // let xstartDate = "2013-01-01";
-    // let xendDate = "2013-02-28";
+    xendDate = dataPickerTo.value;
 
 
-    //pdfDateFrom.innerHTML = dataPickerFrom.value;
-    //pdfDateTo.innerHTML = dataPickerTo.value;
+    if (isControlsValid) {
 
-    let allDates = allDate(dateRange(xstartDate, xendDate));
-    let today = new Date().toString()
-    today = today.slice(4, 15)
-    allDates.forEach((indexValue, index, array) => {
-        if (array.length == 1) {
 
-            pdfDateFrom.innerHTML = indexValue.start;
-            pdfDateTo.innerHTML = indexValue.end;
-            pdfCurrentMonth.innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
-            pdfReceiptNumber.innerHTML = "1";
-            pdfGenerateDate.innerHTML = today;
+
+        let monthlyCheck = document.getElementById("flexRadioMonthly");
+        let monthSlot = 1;
+        if (!monthlyCheck.checked) {
+            // set qwarterly
+            monthSlot = 3;
         }
-        else {
 
-            if (index == 0) {
+        let allDates = addMonths(xstartDate, xendDate, monthSlot);
+        //let allDates = allDate(dateRange(xstartDate, xendDate));
+        let today = new Date().toString()
+        today = today.slice(4, 15)
+        allDates.forEach((indexValue, index, array) => {
+            if (array.length == 1) {
+
                 pdfDateFrom.innerHTML = indexValue.start;
                 pdfDateTo.innerHTML = indexValue.end;
                 pdfCurrentMonth.innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
@@ -306,37 +328,47 @@ function addDynamicData() {
                 pdfGenerateDate.innerHTML = today;
             }
             else {
-                var mainContainer = document.getElementById('allSlips');
-                var element = document.getElementById('invoice1');
-                var element2 = element.cloneNode(true);
-                element2.id = "invoice" + (index + 1);
-                mainContainer.appendChild(element2);
 
-                document.querySelector("#invoice" + (index + 1) + "  #pdfDateFrom").innerHTML = indexValue.start;
-                document.querySelector("#invoice" + (index + 1) + "  #pdfDateTo").innerHTML = indexValue.end;
-                document.querySelector("#invoice" + (index + 1) + "  #pdfCurrentMonth").innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
-                document.querySelector("#invoice" + (index + 1) + "  #pdfReceiptNumber").innerHTML = (index + 1);
-                document.querySelector("#invoice" + (index + 1) + "  #pdfGenerateDate").innerHTML = today;
+                if (index == 0) {
+                    pdfDateFrom.innerHTML = indexValue.start;
+                    pdfDateTo.innerHTML = indexValue.end;
+                    pdfCurrentMonth.innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
+                    pdfReceiptNumber.innerHTML = "1";
+                    pdfGenerateDate.innerHTML = today;
+                }
+                else {
+                    var mainContainer = document.getElementById('allSlips');
+                    var element = document.getElementById('invoice1');
+                    var element2 = element.cloneNode(true);
+                    element2.id = "invoice" + (index + 1);
+                    mainContainer.appendChild(element2);
 
-                if ((index + 1) % 3 == 0 && index != 0) {
-                    
-                    const pageBreaker = document.createElement("div");
-                    pageBreaker.setAttribute("class","html2pdf__page-break");
-                    mainContainer.appendChild(pageBreaker);
-                   // document.querySelector("#invoice" + index).style.marginBottom = "100px";
+                    document.querySelector("#invoice" + (index + 1) + "  #pdfDateFrom").innerHTML = indexValue.start;
+                    document.querySelector("#invoice" + (index + 1) + "  #pdfDateTo").innerHTML = indexValue.end;
+                    document.querySelector("#invoice" + (index + 1) + "  #pdfCurrentMonth").innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
+                    document.querySelector("#invoice" + (index + 1) + "  #pdfReceiptNumber").innerHTML = (index + 1);
+                    document.querySelector("#invoice" + (index + 1) + "  #pdfGenerateDate").innerHTML = today;
+
+                    if ((index + 1) % 3 == 0 && index != 0) {
+
+                        const pageBreaker = document.createElement("div");
+                        pageBreaker.setAttribute("class", "html2pdf__page-break");
+                        mainContainer.appendChild(pageBreaker);
+                        // document.querySelector("#invoice" + index).style.marginBottom = "100px";
+                    }
+
+
                 }
 
 
+                // document.querySelector("#invoice2 #receiptSartDate").style.color = "red";
             }
 
 
-            // document.querySelector("#invoice2 #receiptSartDate").style.color = "red";
-        }
-
-
-    })
-    //generatePDF();
-   // console.log(allDates);
+        })
+        //generatePDF();
+        console.log(allDates);
+    }
 }
 
 function resetPage(callBack){
@@ -357,8 +389,6 @@ function resetPage(callBack){
 function generatePDF() {
     addDynamicData()
 
-    // var scrollThread, scrollTimeout,
-    //     scrollTimeout = 1000;
     if (isControlsValid) {
 
         toggleSpinner.style.display = "inline-block";
@@ -378,22 +408,16 @@ function generatePDF() {
             image: { type: 'jpeg', quality: 2 }
         };
 
-        // scrollThread = setInterval(() => {
 
-        //  if (document.documentElement.scrollTop == 0 || document.body.scrollTop == 0 || true) {
-        //scrollready = true;
         html2pdf().set(options).from(element).toPdf().save("Rent slip by Generate Receipt").then((data) => {
             // console.log("PDF success");
             resetPage();
-       
+
 
         }).catch((err) => {
             console.log("PDF Error " + err)
         })
-      //  clearInterval(scrollThread);
-           //}
 
-        //   }, scrollTimeout);
 
     }
 
@@ -405,8 +429,6 @@ function generatePDF() {
     // <div class="html2pdf__page-break"></div>
 }
 
-
-
-
 button.addEventListener('click', generatePDF);
+
 
