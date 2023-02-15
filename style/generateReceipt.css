@@ -1,0 +1,147 @@
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+input#dataPickerFrom,
+input#dataPickerTo {
+    display: inline-block;
+    position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+#invoicetest {
+    width: 100%;
+    height: 200px;
+    background-color: grey;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    box-sizing: border-box;
+    clear: both;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    padding: 20px;
+    border: 0px;
+    margin: 0 auto;
+    /* margin-left: -9px; */
+    margin-top: 0px;
+
+
+}
+
+#invoicetest p {
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+#receipt-generator {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+#pdfWrapper {
+    display: none;
+}
+
+.invoice {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.invoice .invoiceWrapper {
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #190a0a;
+    padding: 20px;
+    font-size: 15px;
+}
+
+#receiptHeading {
+    text-align: center;
+}
+
+#receiptSartDate {
+    font-weight: bold;
+}
+
+#receiptSartDate span {
+    font-weight: normal;
+}
+
+#companyName span {
+    color: blue;
+}
+
+#receiptNumber,
+#receiptGeneratDate {
+    text-align: right;
+}
+
+#receiptDeclar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#receiptDeclar span {
+    font-weight: bold;
+}
+
+#landlord {}
+
+#landlord span {
+    font-weight: bold;
+}
+
+#validationMessage {
+    color: red;
+    padding-top: 30px;
+    margin-left: 2px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+#downloadPDF {
+    margin-top: 20px;
+    float: right;
+}
+
+#downloadPDF .spinner-grow
+{
+    display: none;
+}
+
+.validation-message {
+    color: red;
+    padding: 5px 0px 5px 5px;
+    /* display: none; */
+    margin-bottom: 0px;
+    display: none;
+
+}
+
+
+#comments, #blog-pager, .blog-feeds, .post-footer
+{
+    display: none;
+}
