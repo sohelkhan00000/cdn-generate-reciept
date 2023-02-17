@@ -53,12 +53,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 #receipt-generator {
-      padding-left: 0px;
-      padding-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     }
 
 #pdfWrapper {
-    /* display: none; */
+    display: none;
 }
 
 .invoice {
@@ -125,6 +125,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #downloadPDF {
     margin-top: 20px;
     float: right;
+}
+
+#downloadPDF span {
+    pointer-events: none;
 }
 
 #downloadPDF .spinner-grow

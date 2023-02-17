@@ -270,6 +270,20 @@ function addDynamicData() {
     Object.keys(checkAllvalidation).some(function (k) {
         if (checkAllvalidation[k].style.display == "block") {
             // do something
+            // document.getElementsByClassName(k).scrollIntoView();
+
+            var headerOffset;
+            checkAllvalidation[k].id == "pdfAddressError" ? headerOffset = 130 : headerOffset = 80;
+
+            var elementPosition = checkAllvalidation[k].getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+
+            checkAllvalidation[k].previousElementSibling.focus()
             isControlsValid = false
             return true;
         }
@@ -374,6 +388,7 @@ function addDynamicData() {
         //generatePDF();
         console.log(allDates);
     }
+
 }
 
 function resetPage(callBack){
@@ -425,6 +440,14 @@ function generatePDF() {
 
 
     }
+    else
+    {
+        // var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        // var toastList = toastElList.map(function (toastEl) {
+        //   return new bootstrap.Toast(toastEl)
+        // });
+        // toastList.forEach(toast => toast.show())
+    }
 
     // Choose the element that your content will be rendered to.
     //const element = document.getElementById('invoicetest');
@@ -434,6 +457,18 @@ function generatePDF() {
     // <div class="html2pdf__page-break"></div>
 }
 
-button.addEventListener('click', generatePDF);
+
+
+
+
+button.addEventListener('click', ()=>{
+
+
+//toast.show()
+    // let mytoast = document.getElementById("mytoast");
+    // mytoast.show()
+    generatePDF();
+   // ga('send', 'event', { eventCategory: 'Book button', eventAction: 'Click', eventLabel: 'enquiry home page'})
+});
 
 
