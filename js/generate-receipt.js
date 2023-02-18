@@ -432,6 +432,12 @@ function generatePDF() {
         html2pdf().set(options).from(element).toPdf().save("Rent receipt by Generate Receipt").then((data) => {
             // console.log("PDF success");
             resetPage();
+            gtag('event', 'PDF download', {
+                'eventCategory': 'category_value',
+
+                'dimension5': 'custom data'
+
+            });
 
 
         }).catch((err) => {
