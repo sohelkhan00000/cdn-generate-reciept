@@ -11,9 +11,7 @@ a {
 	color: #57AD68;
 }
 
-.wrapper {
-	background: #F8F8F8;
-}
+
 
 .social-icons ul li a {
 	color: #d0d0d0;
@@ -578,13 +576,14 @@ body {
 }
 
 .wrapper {
-	max-width: 1018px;
+	max-width: 1140px;
 	margin: 0 auto;
 	background-color: #f8f8f8;
 	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 }
+
 .container {
 	margin: 0 auto;
 	max-width: 978px;
@@ -1412,7 +1411,12 @@ a.more-link:focus {
 /* =Content
 -----------------------------------------------*/
 #main {
-	padding: 30px 0 10px;
+	/* padding: 30px 0 10px; */
+}
+
+#main > .container-lg {
+
+	padding: 20px;
 }
 #main form input,#main form textarea {
 	-webkit-box-sizing: border-box;
@@ -1702,9 +1706,9 @@ thead th,tfoot th,thead tr:hover th,tfoot tr:hover th {
 	margin: 0 auto;
 }
 /* Custom Gallery Page */
-.custom-gallery #main {
+/* .custom-gallery #main {
 	padding-bottom: 20px;
-}
+} */
 #content .custom-gallery-title,.custom-gallery-title a {
 	font-size: 20px;
 	text-align: center;
@@ -2351,9 +2355,9 @@ article {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
-#main {
+/* #main {
 	padding: 25px 0px;
-}
+} */
 #main.section
 {
 	padding-top:0px;
@@ -2525,9 +2529,9 @@ article {
 		float: none;
 		text-align: left;
 	}
-	#main {
+	/* #main {
 		padding-top: 40px;
-	}
+	} */
 	.post-featured-image {
 		margin-bottom: 5px;
 	}
@@ -2664,8 +2668,8 @@ article {
 
 
 /*  add id here to working date picker */
-input#dataPickerFrom,
-input#dataPickerTo {
+
+input[type='date']{
 	display: inline-block;
 	position: relative;
 }
