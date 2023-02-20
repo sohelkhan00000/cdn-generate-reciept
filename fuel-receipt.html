@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+
+    <!-- theme main css file-->
+    <link type='text/css' href="style/style.css" rel="stylesheet" />
+    <!-- <link type='text/css' href="https://sohelkhan00000.github.io/cdn-generate-reciept/style/style.css" rel="stylesheet" />  -->
+</head>
+
+<body style="background-color: #725f5f;">
+
+    <div class="page-container" style="max-width: 843px; width: 100%; height:auto; background-color: #644747; margin:0 auto;">
+        <link type='text/css' href="style/fuel-receipt.css" rel="stylesheet" />
+
+        <div style="display:none;visibility: hidden;">
+            <h1>petrol bills</h1>
+            <h2>deisel bills</h2>
+            <h3>cng bills</h3>
+            <h4>cng bills</h4>
+            <h5>electic bills</h5>
+            <h6>electic bills</h6>
+            <p>download petrol bills</p>
+        </div>
+
+        <div id="fuel-bill">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="form-label">Fuel Station Name</label>
+                            <input class="form-control" id="inputStationName" type="text" />
+                            <p class="validation-message" id="ErrorStationName"></p>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label class="form-label">Address</label>
+                            <textarea class="form-control" id="textboxAddress" rows="3"></textarea>
+                            <p class="validation-message" id="ErrorAdress"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <label class="form-label">Fuel Rate</label>
+                            <input class="form-control" id="inputFuelRate" type="number" />
+                            <p class="validation-message" id="ErrorFuelRate"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <label class="form-label">Total Amount</label>
+                            <input class="form-control" id="inputAmount" type="number" />
+                            <p class="validation-message" id="ErrorAmount"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <label class="form-label">Fuel Bill Date</label>
+                            <input class="form-control" id="billDate" placeholder="" type="date" />
+                            <p class="validation-message" id="ErrorBillDate"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <label class="form-label">Fuel Bill Time</label>
+                            <input class="form-control" id="billTime" placeholder="" type="time" />
+                            <p class="validation-message" id="ErrorBillTime"></p>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label class="form-label">Customer Name</label>
+                            <input class="form-control" id="inputCustomerName" type="text" />
+                            <p class="validation-message" id="ErrorCustomerName"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <label class="form-label">Vehical Number</label>
+                            <input class="form-control" id="inputVechical" type="text" />
+                            <p class="validation-message" id="ErrorVechical"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <!-- select box -->
+        
+                            <label class="form-label">Vehicle Type</label>
+                            <select class="form-control"  id="inputVehcleType">
+                                <option>Petrol</option>
+                                <option>Deisel</option>
+                                <option>CNG</option>
+                                <option>Electric</option>
+                            </select>
+                            <p class="validation-message" id="ErrorVechleType"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <label class="form-label">Payment Type</label>
+                            <select class="form-control" id="inputPaymentType">
+                                <option>Cash</option>
+                                <option>Online</option>
+                                <option>Debit Card</option>
+                            </select>
+                            <p class="validation-message" id="ErrorPaymentType"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <label class="form-label">Invoice Number</label>
+                            <input class="form-control" id="inputInvoiceNumber" type="text" />
+                            <p class="validation-message" id="ErrorInvoiceNumber"></p>
+                        </div>
+                        
+                            <div class="col-md-3 mt-3" >
+                                <div class="form-check">
+                                    <input class="form-check-input" checked id="cst-none" name="flexRadioCST" type="radio">
+                                    <label class="form-check-label">None</label>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-3 mt-3" >
+                                <div class="form-check">
+                                    <input class="form-check-input"  id="cst-tin" name="flexRadioCST" type="radio">
+                                    <label class="form-check-label">CST TIN</label>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-3 mt-3" >
+                                <div class="form-check">
+                                    <input class="form-check-input"  id="cst-gst" name="flexRadioCST" type="radio">
+                                    <label class="form-check-label">GST TIN</label>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-3 mt-3" >
+                                <div class="form-check">
+                                    <input class="form-check-input" id="cst-tax" name="flexRadioCST" type="radio" />
+                                    <label class="form-check-label">TXN NO</label>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-12 mt-3">
+                                <input class="form-control" id="cstNumber" type="text" value="M43010GH195260" />
+                            </div>
+                      
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 d-none">
+                            <label class="form-label">Select Template</label>
+                        </div>
+                        <div class="col-12 d-none">
+                            <div class="form-check">
+                                <input checked="" class="form-check-input" id="flexRadioTemplate1" name="flexRadioDefault"
+                                    type="radio" />
+                                <label class="form-check-label">Template 1</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <!-- <div class="form-check">
+                                <input class="form-check-input" id="flexRadioTemplate2" name="flexRadioDefault" type="radio" />
+                                <label class="form-check-label">
+                                    Template 2
+                                </label>
+                            </div> -->
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Select Logo</label>
+                        </div>
+                       
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" checked id="logo-bharat-petroleum" name="flexRadiologo" type="radio" />
+                                    <label class="form-check-label">Bharat Petroleum</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input"  id="logo-indian-oil" name="flexRadiologo" type="radio" />
+                                    <label class="form-check-label">Indian Oil</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input"  id="logo-hp-oil" name="flexRadiologo" type="radio" />
+                                    <label class="form-check-label">HP Oil</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input"  id="logo-essar-oil" name="flexRadiologo" type="radio" />
+                                    <label class="form-check-label">Essar Oil</label>
+                                </div>
+                            </div>
+                            <!-- <div class="col-3 col-md-3">
+                                <div class="form-check">
+                                    <input checked="" class="form-check-input" id="flexRadioLogo1" name="flexRadioLogo"
+                                        type="radio" />
+                                    <label class="form-check-label">
+                                        Bharat Petroleum
+                                    </label>
+                                </div>
+                            </div> -->
+
+                       <div class="col-md-12">
+                            <div class="bilWrapper">
+                                <div id="billContainer" class="billContainer">
+                                        <div class="bill">
+                                            <img class="logo" src="images/bill/bharat-petrol-logo.png" />
+                                            <img class="side-logo1" src="images/bill/side-logo.png" />
+                                            <img class="side-logo2" src="images/bill/side-logo.png" />
+                                            <p class="welcome">WELCOME!!! </p>
+                                            <p class="pump-name-para"><span class="pump-name">Bharat Petroleum</span> <span class="pump-address"></span></p>
+                                            <p class="cst-number-text">CST NUMBER: <span class="cst-number">M43010GH195260</span></p>
+                                            <p>TEL NO: <span class="tele-number"></span>  </p>
+                                            <p>RECEIPT NO: <span class="receipt-number"></span></p>
+                                            <p>FCC ID: <span class="fcc-id"></span></p>
+                                            <p>FIP NO: <span class="fip-id"></span></p>
+                                            <p class="nozzle-id-para">NOZZLE NO: <span class="nozzle-id"></span></p>
+
+                                            <p>PRODUCT:<span class="product-type"></span></p>
+                                            <p>RATE/LTR: ₹ <span class="fuel-rate"></span></p>
+                                            <p>AMOUNT: ₹ <span class="fuel-amount"></span></p>
+                                            <p class="value-ltr-para">VOLUME(LTR): <span class="value-ltr"></span> lt</p>
+
+                                            <p>VEH TYPE: <span class="vehical-type"></span></p>
+                                            <p>VEH NO: <span class="vehical-number"></span></p>
+                                            <p class="customer-name-para">CUSTOMER NAME: <span class="customer-name"></span></p>
+                                            <p>DATE: <span class="bill-date"></span> <span class="bill-time"></span></p>
+                                            <p class="cash-mode">MODE: <span class="cash-type"></span></p>
+                                            <p>LST NO: <span></span></p>
+                                            <p>VAT NO: <span></span></p>
+                                            <p>ATTENDENT ID: <span>not available</span></p>
+
+                                            <p class="thanks-para">SAVE FUEL YAANI SAVE MONEY !! THANKS FOR FUELLING WITH US. YOU CAN NOW CALL US ON <span>1800 226344</span>  (TOLL-FREE) FOR QUERIES/COMPLAINTS.</p>
+                                        </div>
+                                </div>
+                            </div>
+                       </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 d-grid d-md-block">
+                    <button id="downloadPDF" class="btn btn-success mx-auto" type="button">
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        <span class="download-text">Download</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="js/fuel-receipt.js"></script>
+
+    </div>
+
+    <!-- script  -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

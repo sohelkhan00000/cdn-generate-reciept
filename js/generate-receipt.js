@@ -341,7 +341,7 @@ function addDynamicData() {
                 pdfCurrentMonth.innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
                 pdfReceiptNumber.innerHTML = "1";
                 pdfGenerateDate.innerHTML = today;
-                generateAdd();
+                //generateAdd();
 
             }
             else {
@@ -379,10 +379,11 @@ function addDynamicData() {
 
 
                 }
-                // document.querySelector("#invoice2 #receiptSartDate").style.color = "red";
+                
             }
 
-            if (array.length == 2 && index != 0) {
+            if((index + 1) % 3 != 0 && (index + 1) == array.length)
+            {
                 generateAdd();
             }
         })
