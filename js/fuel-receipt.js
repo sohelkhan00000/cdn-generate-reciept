@@ -69,16 +69,16 @@ changeLogo.forEach(i => i.addEventListener(
     "click",
     (e) => {
         if (e.currentTarget.id == "logo-bharat-petroleum") {
-            logoImage.src = "images/bill/bharat-petrol-logo.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/bharat-petrol-logo.png";
         }
         else if (e.currentTarget.id == "logo-indian-oil") {
-            logoImage.src = "images/bill/indian-oil.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/indian-oil.png";
         }
         else if (e.currentTarget.id == "logo-hp-oil") {
-            logoImage.src = "images/bill/HP-petroleum.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/HP-petroleum.png";
         }
         else if (e.currentTarget.id == "logo-essar-oil") {
-            logoImage.src = "images/bill/essar-oil.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/essar-oil.png";
         }
     }));
 
