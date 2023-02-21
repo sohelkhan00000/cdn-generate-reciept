@@ -15,7 +15,7 @@
 
 
 #downloadPDF {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     float: right;
 }
 
@@ -29,6 +29,7 @@
     padding: 5px;
     margin: 0 auto;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .bill .logo {
@@ -116,4 +117,8 @@ p.cst-number-text {
 
 .validation-message {
     color: red;
+}
+
+.cstNumber {
+    margin-bottom: 30px;
 }
