@@ -119,6 +119,6 @@ p.cst-number-text {
     color: red;
 }
 
-.cstNumber {
+#cstNumber {
     margin-bottom: 30px;
 }
