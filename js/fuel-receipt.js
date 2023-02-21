@@ -15,6 +15,8 @@ const receiptNumber = document.querySelector(".receipt-number");
 const templateBillDate = document.querySelector(".bill-date");
 const templateBillTime = document.querySelector(".bill-time");
 const templateTeleNumber = document.querySelector(".tele-number");
+const templatepumpname = document.querySelector('.pump-name');
+const liveStationName = document.querySelector('#inputStationName');
 
 let isControlsValid = true;
 const objCombine = {
@@ -60,6 +62,7 @@ var readyPage = () => {
     templateBillTime.innerHTML = date.toISOString().substring(11, 16); 
     receiptNumber.innerHTML = Math.floor(1000 + Math.random() * 9000);
     templateTeleNumber.innerHTML = Math.floor(1000000 + Math.random() * 9000000);
+    liveStationName.value = "Bharat Petroleum";
 
 
 }
@@ -70,15 +73,24 @@ changeLogo.forEach(i => i.addEventListener(
     (e) => {
         if (e.currentTarget.id == "logo-bharat-petroleum") {
             logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/bharat-petrol-logo.png";
+            templatepumpname.innerHTML = "Bharat Petroleum";
+            liveStationName.value = "Bharat Petroleum";
+
         }
         else if (e.currentTarget.id == "logo-indian-oil") {
             logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/indian-oil.png";
+            templatepumpname.innerHTML = "Indian Oil";
+            liveStationName.value = "Indian Oil";
         }
         else if (e.currentTarget.id == "logo-hp-oil") {
             logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/HP-petroleum.png";
+            templatepumpname.innerHTML = "HP Oil";
+            liveStationName.value = "HP Oil";
         }
         else if (e.currentTarget.id == "logo-essar-oil") {
             logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/essar-oil.png";
+            templatepumpname.innerHTML = "ESSAR Oil";
+            liveStationName.value = "ESSAR Oil";
         }
     }));
 
