@@ -1410,11 +1410,11 @@ a.more-link:focus {
 
 /* =Content
 -----------------------------------------------*/
-#main {
-	/* padding: 30px 0 10px; */
-}
+/* #main {
+	 padding: 30px 0 10px; 
+} */
 
-#main > .container-lg {
+#main-2 > .container-lg {
 
 	padding: 20px;
 }
