@@ -72,23 +72,23 @@ changeLogo.forEach(i => i.addEventListener(
     "click",
     (e) => {
         if (e.currentTarget.id == "logo-bharat-petroleum") {
-            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/bharat-petrol-logo.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/bharat-petrol-logo.png";
             templatepumpname.innerHTML = "Bharat Petroleum";
             liveStationName.value = "Bharat Petroleum";
 
         }
         else if (e.currentTarget.id == "logo-indian-oil") {
-            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/indian-oil.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/indian-oil.png";
             templatepumpname.innerHTML = "Indian Oil";
             liveStationName.value = "Indian Oil";
         }
         else if (e.currentTarget.id == "logo-hp-oil") {
-            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/HP-petroleum.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/HP-petroleum.png";
             templatepumpname.innerHTML = "HP Oil";
             liveStationName.value = "HP Oil";
         }
         else if (e.currentTarget.id == "logo-essar-oil") {
-            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/images/bill/essar-oil.png";
+            logoImage.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/essar-oil.png";
             templatepumpname.innerHTML = "ESSAR Oil";
             liveStationName.value = "ESSAR Oil";
         }
