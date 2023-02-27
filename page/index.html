@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+    <title>Generate Reciept</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+     <link rel="icon" type="image/x-icon" href='https://cdn.jsdelivr.net/gh/sohelkhan00000/cdn-generate-reciept@01119da/images/favicon.ico' />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+            rel="stylesheet" crossorigin="anonymous" /> -->
+            <!-- <link href='https://cdn.jsdelivr.net/gh/sohelkhan00000/cdn-generate-reciept@a94dfbb/style/style.css' media='all' rel='stylesheet' type='text/css'/> -->
+    <link href="style/style.css" rel="stylesheet">
+
+
+    <!-- html2pdf CDN link -->
+
+    <style>
+        input#dataPickerFrom,
+        input#dataPickerTo {
+            display: inline-block;
+            position: relative;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="download-button">Download as PDF</button>
+
+    <style>
+        .invoice {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+        }
+
+        .invoice .invoiceWrapper {
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            background-color: white;
+            border: 1px solid #190a0a;
+            padding: 20px;
+            font-size: 15px;
+        }
+
+        #receiptHeading {
+            text-align: center;
+        }
+
+        #receiptSartDate {
+            font-weight: bold;
+        }
+
+        #receiptSartDate span {
+            font-weight: normal;
+        }
+
+        #companyName {
+            color: blue;
+        }
+
+        #receiptNumber,
+        #receiptGeneratDate {
+            text-align: right;
+        }
+
+        #receiptDeclar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        #receiptDeclar span {
+            font-weight: bold;
+        }
+
+        #landlord span {
+            font-weight: bold;
+        }
+    </style>
+
+
+    <div id="invoice1" class="invoice">
+        <div class="invoiceWrapper">
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="receiptHeading">Provisional</p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--  start date of receipt month and year only -->
+                                <p id="receiptSartDate">RENT RECEIPT <span>April 2022</span></p>
+                            </div>
+                            <div class="col-md-12">
+                                <p id="companyName">Generated on Generate Receipt</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p id="receiptNumber">Receipt No: <span>1</span></p>
+
+                            </div>
+                            <div class="col-md-12">
+                                <!--  Date on which receipt generated-->
+                                <p id="receiptGeneratDate">Date: May 01 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="receiptDeclar">Received sum of INR <span class="receiptAmount">
+                                Rs.
+                                18000 </span>
+                            from
+                            <span class="receiptName"> sohel khan </span>
+                            towards the rent of propertylocated at
+                            <span class="receiptAddress"> house no. 569 Sarhoul sector 18, Gurugram - 122018 </span>
+                            for the period from
+                            <span class="receiptFromDate"> Apr 01 2022 </span>
+                            to
+                            <span class="receiptToDate"> Apr 30 2022</span>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="landlord"><span class="landlordName">Faisal</span>
+                            (Landlord),
+
+                            <span class="landloardPan">Pan: ADUPF7847B</span>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="allContainer">
+
+    </div>
+    
+    <script src="js/generateReceipt.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        <!-- <script src="js/test.js"></script> -->
+    <script>
+        const button = document.getElementById('download-button');
+
+        function generatePDF() {
+            var mainContainer = document.getElementById('allContainer');
+            // Choose the element that your content will be rendered to.
+            var element = document.getElementById('invoice1');
+            mainContainer.appendChild(element);
+
+            var element2 = element.cloneNode(true)
+            element2.id = "invoice2"
+            mainContainer.appendChild(element2);
+
+            document.querySelector("#invoice2 #receiptSartDate").style.color = "red";
+            // Choose the element and save the PDF for your user.
+            html2pdf().from(mainContainer).save();
+        }
+
+
+
+        button.addEventListener('click', generatePDF);
+    </script>
+</body>
+
+</html>

@@ -35,23 +35,23 @@ const objCombine = {
 
 var readyPage = () => {
 
-    try{
-    var title = document.querySelector("title")
-    if(title)
-    {
-        title.innerHTML = "Free fuel bills";
-    }
+    // try{
+    // var title = document.querySelector("title")
+    // if(title)
+    // {
+    //     title.innerHTML = "Free fuel bills";
+    // }
     
 
-    var metaKeyword = document.querySelector("meta[name='keywords']")
-    metaKeyword.content = "free fuel bills, free petrol bills, free diesel bills, free cng bills";
+    // var metaKeyword = document.querySelector("meta[name='keywords']")
+    // metaKeyword.content = "free fuel bills, free petrol bills, free diesel bills, free cng bills";
 
-    var metaDiscription = document.querySelector("meta[name='description']")
-    metaDiscription.content = "Free download fuel bills pdf without login and email";
-    }
-    catch(err){
-        console.log("Error : " + err)
-    }
+    // var metaDiscription = document.querySelector("meta[name='description']")
+    // metaDiscription.content = "Free download fuel bills pdf without login and email";
+    // }
+    // catch(err){
+    //     console.log("Error : " + err)
+    // }
 
 
 

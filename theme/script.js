@@ -1,54 +1,43 @@
 let xstartDate;
 let xendDate;
 let isControlsValid = true;
+let islazyLoadingDone = false;
 
 const toggleSpinner = document.querySelector("#downloadPDF .spinner-grow");
 const toggleDownload = document.querySelector("#downloadPDF .download-text");
 const button = document.getElementById('downloadPDF');
-var mainContainer = document.getElementById('allSlips');
+const mainContainer = document.getElementById('allSlips');
+const linkbtn = document.getElementById("linkmblmenu");
+const moblNav = document.getElementById("nav-links");
+const inputRenterName = document.getElementById("inputRenterName");
 
-const knuncleNumbers = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+function lazyLoading() {
+    //islazyLoadingDone = false;
 
-function countMonths(d1, d2) {
-    d1 = new Date(d1);
-    d2 = new Date(d2);
-    var months;
-    months = (d2.getFullYear() - d1.getFullYear()) * 12;
-    months -= d1.getMonth();
-    months += d2.getMonth();
-    return months <= 0 ? 0 : months;
+    if(!islazyLoadingDone)
+    {
+        islazyLoadingDone = true;
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+        script.async = true;
+    
+        script.onload = () => {
+            islazyLoadingDone = true;
+            console.log('Script loaded successfuly');
+        };
+        script.onerror = () => {
+            islazyLoadingDone = false;
+            console.log('Error occurred while loading script');
+        };
+        document.body.appendChild(script);
+    }
+
 }
 
 function getMonthShortName(monthNo) {
     const date = new Date();
     date.setMonth(monthNo - 1);
     return date.toLocaleString('en-US', { month: 'short' });
-}
-
-function getLastDate(currentDate) {
-    // let currDate = currentDate;
-    let startDateObj = new Date(currentDate);
-    currentDate = currentDate.substring(0, 8);
-    currentDate += knuncleNumbers[startDateObj.getMonth()];
-    return currentDate
-}
-
-function countDays(firstDate, lastDate)
-{
-         // To set two dates to two variables
-    var date1 = new Date(firstDate);
-    var date2 = new Date(lastDate);
-      
-    // To calculate the time difference of two dates
-    var Difference_In_Time = date2.getTime() - date1.getTime();
-      
-    // To calculate the no. of days between two dates
-    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-      
-    //To display the final no. of days (result)
-    //console.log( Difference_In_Days);
-
-   return Difference_In_Days
 }
 
 function addMonths(paraStartDate, paraEndDate, monthSlot) {
@@ -180,9 +169,7 @@ function checkValidation(value, type, name, callBack) {
 
 function addDynamicData() {
 
-
     // user contrls
-    let inputRenterName = document.getElementById("inputRenterName");
     let inputRent = document.getElementById("inputRent");
     let textboxAddress = document.getElementById("textboxAddress");
     let inputOwnerName = document.getElementById("inputOwnerName");
@@ -200,9 +187,6 @@ function addDynamicData() {
     let pdfOwnerPanError = document.getElementById("pdfOwnerPanError");
     let pdfDateFromError = document.getElementById("pdfDateFromError");
     let pdfDateToError = document.getElementById("pdfDateToError");
-
-
-
 
     checkValidation(inputRenterName.value, "Name", "Name", function (nameSuc, nameMsg) {
         if (!nameSuc) {
@@ -290,9 +274,6 @@ function addDynamicData() {
         }
     });
 
-
-
-
     //  pdf controls
     let pdfRenterName = document.getElementById("pdfRenterName");
     let pdfRent = document.getElementById("pdfRent");
@@ -319,18 +300,13 @@ function addDynamicData() {
 
 
     if (isControlsValid) {
-
-
-
         let monthlyCheck = document.getElementById("flexRadioMonthly");
         let monthSlot = 1;
         if (!monthlyCheck.checked) {
-            // set qwarterly
             monthSlot = 3;
         }
 
         let allDates = addMonths(xstartDate, xendDate, monthSlot);
-        //let allDates = allDate(dateRange(xstartDate, xendDate));
         let today = new Date().toString()
         today = today.slice(4, 15)
         allDates.forEach((indexValue, index, array) => {
@@ -341,8 +317,6 @@ function addDynamicData() {
                 pdfCurrentMonth.innerHTML = getMonthShortName(indexValue.start.slice(5, 7)) + " " + indexValue.start.slice(0, 4);
                 pdfReceiptNumber.innerHTML = "1";
                 pdfGenerateDate.innerHTML = today;
-                //generateAdd();
-
             }
             else {
 
@@ -387,8 +361,6 @@ function addDynamicData() {
                 generateAdd();
             }
         })
-        //generatePDF();
-        console.log(allDates);
     }
 
 }
@@ -426,10 +398,6 @@ function generatePDF() {
 
         toggleSpinner.style.display = "inline-block";
         toggleDownload.innerHTML = "PDF Generating...";
-
-        //  document.body.scrollTop = 0; // For Safari
-        // document.documentElement.scrollTop = 0;
-
         const element = document.getElementById('allSlips');
         var options = {
             jsPDF: {
@@ -443,51 +411,29 @@ function generatePDF() {
 
 
         html2pdf().set(options).from(element).toPdf().save("Rent receipt by Generate Receipt").then((data) => {
-            // console.log("PDF success");
             resetPage();
             gtag('event', 'PDF download', {
                 'eventCategory': 'category_value',
-
                 'dimension5': 'custom data'
-
             });
-
 
         }).catch((err) => {
             console.log("PDF Error " + err)
         })
-
-
     }
-    else
-    {
-        // var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        // var toastList = toastElList.map(function (toastEl) {
-        //   return new bootstrap.Toast(toastEl)
-        // });
-        // toastList.forEach(toast => toast.show())
-    }
-
-    // Choose the element that your content will be rendered to.
-    //const element = document.getElementById('invoicetest');
-    // Choose the element and save the PDF for your user.
-    //html2pdf().from(element).save();
-    //html2pdf().from(element).save('fileName');
-    // <div class="html2pdf__page-break"></div>
 }
 
-
-
-
-
 button.addEventListener('click', ()=>{
-
-
-//toast.show()
-    // let mytoast = document.getElementById("mytoast");
-    // mytoast.show()
     generatePDF();
-   // ga('send', 'event', { eventCategory: 'Book button', eventAction: 'Click', eventLabel: 'enquiry home page'})
 });
+
+linkbtn.addEventListener("click",()=>{
+    moblNav.classList.toggle("d-block");
+});
+
+inputRenterName.addEventListener("keyup",()=>{
+    lazyLoading();
+})
+
 
 
