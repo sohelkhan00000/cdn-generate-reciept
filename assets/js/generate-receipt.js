@@ -1,7 +1,7 @@
 let xstartDate;
 let xendDate;
 let isControlsValid = true;
-let islazyLoadingDone = false;
+
 
 const toggleSpinner = document.querySelector("#downloadPDF .spinner-grow");
 const toggleDownload = document.querySelector("#downloadPDF .download-text");
@@ -10,28 +10,6 @@ const mainContainer = document.getElementById('allSlips');
 const inputRenterName = document.getElementById("inputRenterName");
 
 
-function lazyLoading() {
-    //islazyLoadingDone = false;
-
-    if(!islazyLoadingDone)
-    {
-        islazyLoadingDone = true;
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
-        script.async = true;
-    
-        script.onload = () => {
-            islazyLoadingDone = true;
-            console.log('Script loaded successfuly');
-        };
-        script.onerror = () => {
-            islazyLoadingDone = false;
-            console.log('Error occurred while loading script');
-        };
-        document.body.appendChild(script);
-    }
-
-}
 
 function getMonthShortName(monthNo) {
     const date = new Date();
@@ -426,12 +404,6 @@ function generatePDF() {
 button.addEventListener('click', ()=>{
     generatePDF();
 });
-
-
-
-inputRenterName.addEventListener("keyup",()=>{
-    lazyLoading();
-})
 
 
 
