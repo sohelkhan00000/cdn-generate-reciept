@@ -14,10 +14,11 @@
 
 
 
-#downloadPDF {
+.download-pdf {
     /* margin-top: 20px; */
     float: right;
 }
+
 
 .bill {
     background-color: #f5f7f7;
@@ -26,22 +27,23 @@
     height: 100%;
     margin-top: 0px;
     position: relative;
-    padding: 5px;
+    padding: 15px 5px 15px 5px;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.bill .logo {
+.bill .fs-logo {
     width: 110px;
     height: 110px;
     margin: 0 auto;
     display: block;
+    position: relative;
 }
 
 .bill p {
     font-family: myFirstFont;
-    font-size: 9.5px;
+    font-size: 8.5px;
     font-stretch: extra-condensed;
     margin-bottom: 0px;
     letter-spacing: -0.7px;
@@ -77,10 +79,6 @@
     padding-bottom: 30px;
 }
 
-.bill .bill-date {}
-
-
-.bill .cash-mode {}
 
 .bill .thanks-para {
     padding-top: 50px;
@@ -109,16 +107,88 @@
     display: flex;
 }
 
-#downloadPDF .spinner-grow,
+.download-pdf .spinner-grow,
 #cstNumber,
 p.cst-number-text {
     display: none;
 }
 
 .validation-message {
-    color: red;
+    color: #e25656;
 }
 
 #cstNumber {
     margin-bottom: 30px;
 }
+
+
+/* template 2 start*/
+
+.template-2 .bill p{
+    color:#727578;
+    position: relative;
+}
+.template-2 p.template-overlay{
+    position: absolute;
+    font-size: 20px;
+    transform: rotate(268deg);
+    -webkit-transform: rotate(312deg);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e7e3e3;
+    word-spacing: 55px;
+    text-align: center;
+    margin-top: 100px;
+}
+.template-2 p.template-overlay.overlay-2{
+margin-top:250px;
+}
+
+.template-2 p.template-overlay.overlay-3{
+    margin-top: 400px;
+    }
+
+.template-2 .bill {
+    background-image: url('../images/texture/texture-2.png');
+    background-repeat: round;
+    position: relative;
+    padding: 5px;
+
+    /* background-image: -webkit-gradient(linear, 0 0, 0 80%, from(#f4f1f1), to(transparent)); */
+    /* background-repeat: no-repeat; */
+    /* background-size: 100% 200px; */
+}
+
+.template-2 .bill::after {
+    /* background: linear-gradient(-53deg, transparent 16px, #f0eded 0), linear-gradient(34deg, transparent 14px, #f8f5f5  0); */
+    background: linear-gradient(-53deg, transparent 16px, #f0eded 0), linear-gradient(34deg, transparent 14px, #f0eded  0);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-size: 22px 32px;
+    content: "";
+    display: block;
+    width: calc(100% + 10px);
+    height: 10px;
+    position: relative;
+    top: 14px;
+    left: 0px;
+    margin-left: -5px;
+   
+}
+
+.template-2 .bill::before {
+    background: linear-gradient(-53deg, transparent 16px, #f0eded 0), linear-gradient(34deg, transparent 14px, #f0eded  0);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-size: 22px 32px;
+    content: "";
+    display: block;
+    width: calc(100% + 10px);
+    height: 10px;
+    position: relative;
+    top: -15px;
+    left: 0px;
+    margin-left: -5px;
+    transform: rotateX(180deg);
+   
+}
+/* template 2 end*/

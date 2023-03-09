@@ -70,21 +70,17 @@ header {
     speak: none;
 }
 
+.social-icons ul li a:hover {
+    color: black;
+}
+
 .social-icons ul li.facebook a:after {
 
    content: "\24D5";
 }
 .social-icons ul li.twitter a:after {
 
-    content: "\24D5";
- }
- .social-icons ul li.linkedin a:after {
-
-    content: "\24D5";
- }
- .social-icons ul li.github a:after {
-
-    content: "\24D5";
+    content: "\0024e3";
  }
 
 nav {
