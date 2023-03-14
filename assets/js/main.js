@@ -3,9 +3,9 @@ let linkbtn = document.getElementById("linkmblmenu");
 let eleBody = document.getElementsByTagName("body");
 let islazyLoadingDone = false;
 
-linkbtn.addEventListener("click",()=>{
-    moblNav.classList.toggle("d-block");
-});
+// linkbtn.addEventListener("click",()=>{
+//     moblNav.classList.toggle("d-block");
+// });
 
 function lazyLoading() {
 

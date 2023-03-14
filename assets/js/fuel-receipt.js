@@ -392,7 +392,7 @@ objFormControls["download-pdf"].addEventListener("click", () => {
                 },
                 html2canvas: { letterRendering: true, useCORS: true, logging: true, scrollX: 0, scrollY: 0 },
                 margin: 0,
-                image: { type: 'jpeg', quality: 0.40 }
+                image: { type: 'jpeg', quality: 1.1 }
             };
 
 

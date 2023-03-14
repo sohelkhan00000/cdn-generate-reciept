@@ -1,6 +1,7 @@
 let xstartDate;
 let xendDate;
 let isControlsValid = true;
+let date = new Date();
 
 
 const toggleSpinner = document.querySelector("#downloadPDF .spinner-grow");
@@ -8,8 +9,14 @@ const toggleDownload = document.querySelector("#downloadPDF .download-text");
 const button = document.getElementById('downloadPDF');
 const mainContainer = document.getElementById('allSlips');
 const inputRenterName = document.getElementById("inputRenterName");
+let dataPickerFrom = document.getElementById("dataPickerFrom");
+let dataPickerTo = document.getElementById("dataPickerTo");
 
-
+var readyPage = (template) => {
+    dataPickerFrom.value = date.toISOString().substring(0, 10);
+    dataPickerTo.value = date.toISOString().substring(0, 10);
+}
+readyPage();
 
 function getMonthShortName(monthNo) {
     const date = new Date();
@@ -153,8 +160,8 @@ function addDynamicData() {
     let inputOwnerName = document.getElementById("inputOwnerName");
     let inputOwnerPan = document.getElementById("inputOwnerPan");
     let flexRadioMonthly = document.getElementById("flexRadioMonthly");
-    let dataPickerFrom = document.getElementById("dataPickerFrom");
-    let dataPickerTo = document.getElementById("dataPickerTo");
+    dataPickerFrom = document.getElementById("dataPickerFrom");
+    dataPickerTo = document.getElementById("dataPickerTo");
 
 
     // validation error message Control
