@@ -7,7 +7,7 @@ linkbtn.addEventListener("click",()=>{
     moblNav.classList.toggle("d-block");
 });
 
-var jsLoad = (filePath, asyncType, ele, callBack) => {
+var jsLoad = (filePath, deferType, ele, callBack) => {
 
         let isExist = false;
         document.querySelectorAll('script').forEach((e)=>{
@@ -22,7 +22,7 @@ var jsLoad = (filePath, asyncType, ele, callBack) => {
         {
             const script = document.createElement('script');
             script.src = filePath;
-            script.async = asyncType;
+            script.defer = deferType;
         
             script.onload = () => {
                 callBack(true,'Script loaded successfuly');
@@ -47,7 +47,7 @@ eleBody[0].addEventListener("click", ()=>{
 
 
 var loadGA = (masg)=>{
-    jsLoad('https://www.googletagmanager.com/gtag/js?id=G-907KZKCQJD','defer','head', (suc,msg)=>{
+    jsLoad('https://www.googletagmanager.com/gtag/js?id=G-907KZKCQJD',true,'head', (suc,msg)=>{
         if(suc)
         {
             window.dataLayer = window.dataLayer || [];
