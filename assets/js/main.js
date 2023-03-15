@@ -67,4 +67,7 @@ var loadGA = (masg)=>{
 
 window.addEventListener("load", (e) => {
     loadGA('le');
+    jsLoad('https://cdn.jsdelivr.net/gh/sohelkhan00000/cdn-generate-reciept@16c4640/assets/js/generate-receipt.js',true,'body',()=>{
+        
+    })
 }, { once: true });
