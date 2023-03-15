@@ -228,11 +228,9 @@ var checkValidation = (value, type, name, callBack) => {
     }
     else if (type == "Empty") {
         if (value == "") {
-            // EleValidationMassage.innerHTML ="Field cannot be empty!"
             callBack(false, name + " cannot be empty!");
             return false;
         }
-        //EleValidationMassage.innerHTML =""
         callBack(true, name + " validated successfully!");
         return true;
     }
@@ -384,7 +382,6 @@ objFormControls["download-pdf"].addEventListener("click", () => {
             objFormControls['download-text'].innerHTML = "PDF Generating...";
 
             
-            //const element = document.getElementById(selectedTemplate);
             var options = {
                 jsPDF: {
                     format: 'a4',
@@ -410,9 +407,7 @@ objFormControls["download-pdf"].addEventListener("click", () => {
                 console.log("PDF Error " + err)
             })
         }
-        else{
-            console.log(msg)
-        }
+       
     })
 });
 

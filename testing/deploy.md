@@ -1,16 +1,22 @@
 uat deployment 
 
 
+**before push code on uat**
+1. first upload html files to blogger before commit in uat and note html files name for production.
+
+**html files name**
+
+
 **update version theme**
 
 main.css
 main.js
-html
+
 
 **update page label post**
 post.css
 post.js
-html code
+
 
 **update post**
 
@@ -23,8 +29,11 @@ html code
 
 production deployment
 
+**css files**
+1. minify css files
 
-1. minify css files 
+ **js files**
+1. remove all console from js file 
 2. minify js files
 3. minify html
 5. push code to uat.
