@@ -21,7 +21,8 @@ header {
     pointer-events: none;
     letter-spacing: -1px;
     font: 36px/42px Ubuntu, sans-serif;
-    color:#57ad68
+    color:#57ad68;
+    text-decoration: none;
 }
 
 .site-logo p {
@@ -193,6 +194,9 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
 }
 
 @media (min-width: 768px) {
+    .d-md-block {
+        display: block!important;
+    }
     .contant-bar {
         padding-right: 0px;
         padding-top:15px;
