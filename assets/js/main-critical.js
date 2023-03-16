@@ -134,6 +134,6 @@ var REle = (filePath, eleName, CB)=>{
 })
 
 window.addEventListener("load", (e) => {
-    lAll();
+   // lAll();
 
 }, { once: true });
