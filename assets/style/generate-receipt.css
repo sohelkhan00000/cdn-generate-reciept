@@ -35,7 +35,7 @@
     padding-right: 0px;
     }
 
-#pdfWrapper {
+.receipt-wrapper {
     display: none;
 }
 
@@ -43,6 +43,7 @@
     width: 100%;
     height: auto;
     padding: 10px 20px 10px 20px;
+    /* min-width: 800px; */
 }
 
 .invoice .invoiceWrapper {
@@ -98,16 +99,16 @@
     display: none;
 }
 
-#downloadPDF {
+#download-pdf {
     margin-top: 20px;
     float: right;
 }
 
-#downloadPDF span {
+#download-pdf span {
     pointer-events: none;
 }
 
-#downloadPDF .spinner-grow
+#download-pdf .spinner-grow
 {
     display: none;
 }
