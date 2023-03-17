@@ -40,8 +40,8 @@ var readyPage = () => {
             objErrorControls[i] = document.querySelector("p[data-error=" + i + "]")
         }
 
-        if (document.querySelector("[aria-labelledby=" + i + "]") ) {
-            objTemplateControls[i] = document.querySelectorAll("[aria-labelledby=" + i + "]");
+        if (document.querySelector("[data-tm=" + i + "]") ) {
+            objTemplateControls[i] = document.querySelectorAll("[data-tm=" + i + "]");
         }
     }
    
@@ -298,8 +298,8 @@ var addDynamicData = (CB)=> {
                     element2.id = "invoice" + (index + 1);
                   objTemplateControls['receipts'].appendChild(element2);
 
-                    document.querySelector("#invoice" + (index + 1) + " [aria-labelledby='date-from']").innerHTML = indexValue.start.toUpperCase();
-                    document.querySelector("#invoice" + (index + 1) + " [aria-labelledby='date-to']").innerHTML = indexValue.end.toUpperCase();
+                    document.querySelector("#invoice" + (index + 1) + " [data-tm='date-from']").innerHTML = indexValue.start.toUpperCase();
+                    document.querySelector("#invoice" + (index + 1) + " [data-tm='date-to']").innerHTML = indexValue.end.toUpperCase();
                     document.querySelector("#invoice" + (index + 1) + "  .current-month").innerHTML = getMonthShortName(indexValue.start);
                     document.querySelector("#invoice" + (index + 1) + "  .receipt-number").innerHTML = (index + 1);
                     document.querySelector("#invoice" + (index + 1) + "  .generate-date").innerHTML = getMonthShortName(today);;
