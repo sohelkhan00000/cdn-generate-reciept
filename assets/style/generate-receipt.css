@@ -145,8 +145,7 @@ margin: 0px;
     color: #1b1e1f;
     letter-spacing: -1px;
     font-size: 32px;
-    text-shadow: 0 1px 0 #fff;
     padding-top: 0px;
     padding-bottom: 30px;
-    display: block;
+    display: var(--comboC-fg);
 }

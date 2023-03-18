@@ -4,31 +4,78 @@
     box-sizing: border-box;
 }
 
+:root {
+    --logo-c:#4F4F4F;
+    --nav-bg: #4F4F4F;
+    --main-c : #4F4F4F;
+
+    --comboA-bg : #f5eded;
+    --comboA-fg : #4F4F4F;
+
+    --comboB-bg : #4F4F4F;
+    --comboB-fg : #f5eded;
+    --comboB-hover-bg : #000000;
+    --comboB-hover-fg : #ffffff;
+
+    --comboC-bg : #fff;
+    --comboC-fg : #4F4F4F;
+
+    --comboD-bg : #ffffff;
+    --comboD-fg : #4F4F4F;
+    --comboD-hover-fg : #ccc5c5;
+}
+.form-label, .form-check-input{
+    color: var(--main-c);
+}
+.btn-success {
+    color: var(--comboB-fg);
+    background-color: var(--comboB-bg);
+    border-color: var(--comboB-bg);
+
+}
+.btn-success:hover {
+    color: var(--comboB-hover-fg);
+    background-color: var(--comboB-hover-bg);
+    border-color: var(--comboB-hover-bg);
+
+}
+.form-check-input:checked{
+    background-color: var(--main-c);
+    border-color:var(--main-c);
+}
+.form-check-input:focus
+{
+    border-color: var(--main-c) ;
+     outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255)
+}
+
+ h1, h2, h3, h4, h5, h6{
+    color: var(--main-c);
+}
 body {
-    background-color: #a09595;
+    background-color: #e4dfda;
     font-family: sans-serif
 }
 header {
-    background-color: #fff;
+    background-color: var(--comboC-bg);
     padding-left: 20px;
     padding-top: 20px !important;
     padding-bottom: 20px;
-    margin-left: -12px;
-    margin-right: -12px;
 }
 
 .site-logo h1 a {
     pointer-events: none;
     letter-spacing: -1px;
     font: 36px/42px Ubuntu, sans-serif;
-    color:#57ad68;
+    color:var(--comboC-fg);
     text-decoration: none;
 }
 
 .site-logo p {
     font-size: 14px;
     padding-left: 4px;
-    color:#999;
+    color:var(--comboC-fg);
 }
 
 .site-page {
@@ -37,7 +84,8 @@ header {
     min-width: 100px;
     height: auto;
     margin: 0 auto;
-    background-color: #e4dfda;
+    padding-left: 12px;
+    padding-right: 12px;
 
 }
 
@@ -54,7 +102,7 @@ header {
     padding: 2px 3px;
     border-radius: 2px;
     font-size: 21px;
-    color: #d0d0d0;
+    color: var(--comboD-fg);
     -webkit-transition: .3s ease-out;
     -moz-transition: .3s ease-out;
     -ms-transition: .3s ease-out;
@@ -71,7 +119,7 @@ header {
     speak: none;
 }
 .social-icons ul li a:hover {
-    color: black;
+    color: var(--comboD-hover-fg);
 }
 .social-icons ul li.facebook a:after {
 
@@ -89,7 +137,7 @@ nav {
     height: auto;
     position: fixed;
     left: 0;
-    background-color: #57ad68;
+    background-color: var(--comboB-bg);
     z-index: 1000;
 }
 
@@ -103,7 +151,7 @@ nav .nav-heading {
     float: left;
     width: 85%;
     padding-left: 15%;
-    color:#fff;
+    color: var(--comboB-fg);
 }
 
 nav a.nav-mobile {
@@ -118,7 +166,7 @@ nav a.nav-mobile {
 }
 
 nav a.nav-mobile:hover {
-    background-color: gray;
+    background-color: var(--comboB-hover-bg);
 }
 
 nav a.nav-mobile:after {
@@ -133,7 +181,7 @@ nav a.nav-mobile:after {
 nav .nav-links a {
     text-decoration: none;
     padding: 10px;
-    background-color: #57ad68;
+    background-color: var(--comboB-bg);
     color: #f5eded;
     font-size: 17px;
     display: block;
@@ -146,16 +194,21 @@ nav .nav-links a:last-child {
 }
 
 nav .nav-links a:hover {
-    background-color: green;
-    color: #bcbca2;
+    background-color: var(--comboB-hover-bg);
+    color: var(--comboB-hover-fg);
 }
 
 footer {
     font-size: 12px;
     padding: 20px 20px 20px 0px;
     border-top: 1px dashed #6c5a5a;
-    color: #9d9393;
+    color: var(--main-c);
 }
+
+footer a {
+    color: #000000;
+}
+
 article{
     padding-top: 30px;
     padding-bottom: 30px;
@@ -169,6 +222,7 @@ article{
 .contant-bar, .site-bar {
     padding-top: 60px;
     padding-bottom: 15px;
+    margin-top: 0px;
 }
 
 .contant-bar main {
@@ -200,6 +254,15 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     .contant-bar {
         padding-right: 0px;
         padding-top:15px;
+        margin-top: 0px;
+    }
+    .page-wrapper{
+        background-color: #e4dfda;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+    body{
+        background-color: #a09595;
     }
     .nav-links {
         display: block;
@@ -216,13 +279,17 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     nav {
         display: flex;
         position: initial;
-        background-color: #57ad68;
-        width: calc(100% + 24px);
-        margin-left: -12px;
+        background-color: var(--comboB-bg);
+        width: 100%;
+        
     }
 
     nav .nav-mobile,
     nav .nav-heading {
         display: none;
+    }
+    .site-page{
+        margin-top: 8px;
+        margin-bottom: 8px;
     }
 }
