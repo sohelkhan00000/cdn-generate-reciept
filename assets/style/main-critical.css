@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+:root {
+    --logo-c:#4F4F4F;
+    --nav-bg: #4F4F4F;
+
+    --comboA-bg : #f5eded;
+    --comboA-fg : #4F4F4F;
+
+    --comboB-bg : #4F4F4F;
+    --comboB-fg : #f5eded;
+}
+
 .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
@@ -474,10 +485,25 @@ input {
 }
 
 .btn-success {
-    color: #fff;
-    background-color: #198754;
-    border-color: #198754;
+    color: var(--comboB-fg);
+    background-color: var(--comboB-bg);
+    border-color: var(--comboB-bg);
 
+}
+
+.mb-0 {
+    margin-bottom: 0!important;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 /* critical bootstrap end */
@@ -496,18 +522,22 @@ header {
     margin-right: -12px;
 }
 
+.site-logo{
+    margin-top:0px;
+}
+
 .site-logo h1 a {
     pointer-events: none;
     letter-spacing: -1px;
     font: 36px/42px Ubuntu, sans-serif;
-    color: #57ad68;
+    color: var(--logo-c);
     text-decoration: none;
 }
 
 .site-logo p {
     font-size: 14px;
     padding-left: 4px;
-    color: #999;
+    color: var(--logo-c);
 }
 
 .site-page {
@@ -610,7 +640,7 @@ nav a.nav-mobile:after {
 nav .nav-links a {
     text-decoration: none;
     padding: 10px;
-    background-color: #57ad68;
+    background-color: var(--nav-bg);
     color: #f5eded;
     font-size: 17px;
     display: block;
@@ -625,8 +655,8 @@ nav .nav-links a:last-child {
 footer {
     font-size: 12px;
     padding: 20px 20px 20px 0px;
-    border-top: 1px dashed #6c5a5a;
-    color: #9d9393;
+    border-top: 1px dashed var(--comboB-bg);
+    color: var(--comboB-bg);
 }
 article{
     padding-top: 30px;
@@ -671,9 +701,10 @@ article{
     nav {
         display: flex;
         position: initial;
-        background-color: #57ad68;
+        background-color: var(--nav-bg);
         width: calc(100% + 24px);
         margin-left: -12px;
+
     }
 
     nav .nav-mobile,
