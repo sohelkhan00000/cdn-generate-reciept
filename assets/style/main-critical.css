@@ -673,7 +673,7 @@ nav .nav-heading {
     color: var(--comboB-fg);
 }
 
-nav a.nav-mobile {
+nav div.nav-mobile {
     float: right;
     padding: 8px 12px 8px 12px;
     font-size: 20px;
@@ -684,11 +684,11 @@ nav a.nav-mobile {
 
 }
 
-nav a.nav-mobile:hover {
+nav div.nav-mobile:hover {
     background-color: var(--comboB-hover-bg);
 }
 
-nav a.nav-mobile:after {
+nav div.nav-mobile:after {
     content: "\2630";
 }
 
