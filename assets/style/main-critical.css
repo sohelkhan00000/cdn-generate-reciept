@@ -805,11 +805,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     top: 0;
     width: auto;
 }
+.title-wrapper{
+    margin-top: 0px;
+}
 .page-title {
     margin-left: -2px;
     font-size: 25px;
     padding-top: 0px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin-bottom: 0px;
 }
 
@@ -865,6 +868,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     .page-title {
         font-size: 30px;
+        padding-bottom: 30px;
     }
 }
 

@@ -250,11 +250,14 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     top: 0;
     width: auto;
 }
+.title-wrapper{
+    margin-top: 0px;
+}
 .page-title {
     margin-left: -2px;
     font-size: 25px;
     padding-top: 0px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin-bottom: 0px;
 }
 
@@ -305,5 +308,6 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     }
     .page-title{
         font-size: 30px;
+        padding-bottom: 30px;
     }
 }
