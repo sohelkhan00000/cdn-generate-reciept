@@ -125,15 +125,13 @@ var REle = (filePath, eleName, CB)=>{
  
 }
 
-
-
 ['focus', 'scroll', 'mousemove', 'touchstart', 'click'].forEach((e) => {
     document.addEventListener(e, () => {
         lAll();
     }, { once: true });
-})
+});
 
 window.addEventListener("load", (e) => {
    // lAll();
-
+   loadGA();
 }, { once: true });

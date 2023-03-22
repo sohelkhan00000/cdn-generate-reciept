@@ -33,7 +33,7 @@
     border-color: var(--comboB-bg);
 
 }
-.btn-success:hover {
+.btn-success:hover, .btn-success:active, .btn:first-child:active, .btn-success:focus-visible {
     color: var(--comboB-hover-fg);
     background-color: var(--comboB-hover-bg);
     border-color: var(--comboB-hover-bg);
@@ -210,8 +210,12 @@ footer a {
 }
 
 article{
-    padding-top: 30px;
+    
+    padding-top: 20px;
     padding-bottom: 30px;
+}
+article h2{
+margin: 0;
 }
 
 .contant-bar > main, .site-bar > aside{
@@ -245,6 +249,13 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     right: 0;
     top: 0;
     width: auto;
+}
+.page-title {
+    margin-left: -2px;
+    font-size: 25px;
+    padding-top: 0px;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 @media (min-width: 768px) {
@@ -291,5 +302,8 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     .site-page{
         margin-top: 8px;
         margin-bottom: 8px;
+    }
+    .page-title{
+        font-size: 30px;
     }
 }

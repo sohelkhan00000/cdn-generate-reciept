@@ -141,11 +141,3 @@ margin: 0px;
     font-size: 12px;
     padding-right: 20px;
 }
-.page-title {
-    color: #1b1e1f;
-    letter-spacing: -1px;
-    font-size: 32px;
-    padding-top: 0px;
-    padding-bottom: 30px;
-    display: var(--comboC-fg);
-}
