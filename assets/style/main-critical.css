@@ -572,7 +572,10 @@ p {
 
 }
 
-.btn-success:hover {
+.btn-success:hover,
+.btn-success:active,
+.btn:first-child:active,
+.btn-success:focus-visible {
     color: var(--comboB-hover-fg);
     background-color: var(--comboB-hover-bg);
     border-color: var(--comboB-hover-bg);
@@ -765,10 +768,6 @@ article {
     padding-bottom: 30px;
 }
 
-article h2 {
-    margin: 0;
-}
-
 .contant-bar>main,
 .site-bar>aside {
     background-color: #fff;
@@ -805,15 +804,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     top: 0;
     width: auto;
 }
-.title-wrapper{
-    margin-top: 0px;
+
+article.site-title {
+    padding-bottom: 0px;
 }
-.page-title {
-    margin-left: -2px;
-    font-size: 25px;
-    padding-top: 0px;
-    padding-bottom: 20px;
-    margin-bottom: 0px;
+
+.post-title{
+    display: none;
 }
 
 @media (min-width: 768px) {
@@ -866,10 +863,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
         margin-bottom: 8px;
     }
 
-    .page-title {
-        font-size: 30px;
-        padding-bottom: 30px;
+    article.site-title {
+        padding-bottom: 20px;
     }
+
 }
 
 /* theme end */
@@ -909,7 +906,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 #receipt-generator {
     padding-left: 0px;
     padding-right: 0px;
-}
+    }
 
 .receipt-wrapper {
     display: none;
@@ -919,10 +916,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     height: auto;
     padding: 10px 20px 10px 20px;
+    /* min-width: 800px; */
 }
 
 .invoice .invoiceWrapper {
     width: 100%;
+    /* height: 300px; */
     min-height: 300px;
     box-sizing: border-box;
     background-color: white;
@@ -982,19 +981,21 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     pointer-events: none;
 }
 
-#download-pdf .spinner-grow {
+#download-pdf .spinner-grow
+{
     display: none;
 }
 
 .validation-message {
     color: #e25656;
     padding: 5px 0px 5px 5px;
+    /* display: none; */
     margin-bottom: 0px;
     display: none;
 
 }
 
-.revenue {
+.revenue{
     border: 1px dashed #9A9A9A;
     text-align: center;
     width: 90px;
@@ -1004,18 +1005,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     float: right;
     padding: 14px 10px 10px 10px;
 }
-
-.revenue p {
-    margin: 0px;
+.revenue p{
+margin: 0px;
 }
 
-.page-add {
+.page-add{
     float: right;
     font-size: 12px;
     padding-right: 20px;
 }
-
-
 
 
 /* post end */
