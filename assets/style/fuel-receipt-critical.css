@@ -871,11 +871,6 @@ article.site-title {
 
 /* theme end */
 
-@font-face {
-    font-family: myFirstFont;
-    src: url('../fonts/PressStart2P-Regular.ttf');
-}
-
 #blog-pager,
 #comments,
 #pdfWrapper,
@@ -885,10 +880,7 @@ article.site-title {
     visibility: hidden !important;
 }
 
-
-
 .download-pdf {
-    /* margin-top: 20px; */
     float: right;
 }
 

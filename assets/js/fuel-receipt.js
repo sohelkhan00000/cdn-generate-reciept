@@ -53,11 +53,11 @@ var readyPage = (template) => {
             objErrorControls[i] = document.querySelector("p[data-error=" + i + "]")
         }
 
-        if (document.querySelector("[aria-labelledby=" + i + "]") && i != "template-1" && i != "template-2") {
-            objTemplateControls[i] = document.querySelectorAll("[aria-labelledby=" + i + "]");
+        if (document.querySelector("[data-tm=" + i + "]") && i != "template-1" && i != "template-2") {
+            objTemplateControls[i] = document.querySelectorAll("[data-tm=" + i + "]");
         }
         if (i == "template-1" || i == "template-2") {
-            objTemplateControls[i] = document.querySelector("[aria-labelledby=" + i + "]");
+            objTemplateControls[i] = document.querySelector("[data-tm=" + i + "]");
         }
 
     }
