@@ -75,27 +75,38 @@ var lAll = ()=>{
     cssLoad(server.serverPath +'assets/plugins/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css', 'head', (sucA,msgA) => {
         if(sucA)
         {
-            cssLoad(server.serverPath +'assets/style/main.css', 'head', (sucF,msgF) => {
+            cssLoad(server.serverPath +'assets/style/main'+ server.serverStyle, 'head', (sucF,msgF) => {
                 if(sucF)
                 {
-                    cssLoad(server.serverPath +'assets/style/generate-receipt.css', 'head', (sucS,msgS) => {
-                        if(sucS)
-                        {
-                            REle(server.serverPath +'assets/style/main-critical.css','link',(sucT,msgT)=>{
-                                console.log('Critical css '+ msgT);
-                            });
-                        }
-                    });
+                    if (server.serverPage != "/") {
+                        cssLoad(server.serverPath + 'assets/style/fuel-receipt' + server.serverStyle, 'head', (sucS, msgS) => {
+                            if (sucS) {
+                                REle(server.serverPath + 'assets/style/main-critical' + server.serverStyle, 'link', (sucT, msgT) => {
+                                    console.log('Critical css ' + msgT);
+                                });
+                            }
+                        });
+                    }
+                    else
+                    {
+                        cssLoad(server.serverPath + 'assets/style/generate-receipt' + server.serverStyle, 'head', (sucS, msgS) => {
+                            if (sucS) {
+                                REle(server.serverPath + 'assets/style/main-critical' + server.serverStyle, 'link', (sucT, msgT) => {
+                                    console.log('Critical css ' + msgT);
+                                });
+                            }
+                        });
+                    }
                 }
             });
         }
     });
 
 
-    jsLoad(server.serverPath +'assets/js/main.js', true, 'body', (sucA,msgA) => {
+    jsLoad(server.serverPath +'assets/js/main'+server.serverScript, true, 'body', (sucA,msgA) => {
         if(sucA)
         {
-            jsLoad(server.serverPath +'assets/js/generate-receipt.js', true, 'body', (sucB, msgB) => {
+            jsLoad(server.serverPath +'assets/js/generate-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
                 if(sucB)
                 {
                     jsLoad('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', true, 'body', (suc, msg) => {});
