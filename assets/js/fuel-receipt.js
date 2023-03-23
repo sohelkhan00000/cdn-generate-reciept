@@ -124,7 +124,7 @@ objFormControls["fs-logo"].forEach(i => i.addEventListener(
         })
 
         objTemplateControls['fs-logo'].forEach((el) => {
-            el.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/" + e.currentTarget.id + ".png";
+            el.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/" + e.currentTarget.id + ".webp";
         })
 
     }));

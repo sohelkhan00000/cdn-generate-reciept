@@ -1,8 +1,8 @@
 var template ={
     "code" : `    <div class="bill">
-    <img aria-labelledby="fs-logo"  class="fs-logo" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/pump-logo-bharat-petroleum.png" />
-    <img class="side-logo1" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/side-logo.png" />
-    <img class="side-logo2" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/side-logo.png" />
+    <img aria-labelledby="fs-logo"  class="fs-logo" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/bharat-petroleum.webp" />
+    <img class="side-logo1" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/side-logo.webp" />
+    <img class="side-logo2" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/side-logo.webp" />
     <p class="welcome">WELCOME!!! </p>
     <p class="pump-name-para"><span aria-labelledby="fs-station-name" class="fs-station-name"></span> <span aria-labelledby="fs-address" class="fs-address"></span></p>
     <p aria-labelledby="vat-none" class="vat-none d-none"><span class="vat-type">CST NUMBER: </span><span aria-labelledby="vat-number" class="vat-number"></span></p>
