@@ -106,12 +106,20 @@ var lAll = ()=>{
     jsLoad(server.serverPath +'assets/js/main'+server.serverScript, true, 'body', (sucA,msgA) => {
         if(sucA)
         {
-            jsLoad(server.serverPath +'assets/js/generate-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
-                if(sucB)
-                {
-                    jsLoad('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', true, 'body', (suc, msg) => {});
-                }
-            });
+            if (server.serverPage != "/") {
+                jsLoad(server.serverPath + 'assets/js/fuel-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
+                    if (sucB) {
+                        jsLoad('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', true, 'body', (suc, msg) => { });
+                    }
+                });
+            }
+            else {
+                jsLoad(server.serverPath + 'assets/js/generate-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
+                    if (sucB) {
+                        jsLoad('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', true, 'body', (suc, msg) => { });
+                    }
+                });
+            }
            
         }
     });
