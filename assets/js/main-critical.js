@@ -81,7 +81,7 @@ var lAll = ()=>{
                     if (server.serverPage != "/") {
                         cssLoad(server.serverPath + 'assets/style/fuel-receipt' + server.serverStyle, 'head', (sucS, msgS) => {
                             if (sucS) {
-                                REle(server.serverPath + 'assets/style/main-critical' + server.serverStyle, 'link', (sucT, msgT) => {
+                                REle(server.serverPath + 'assets/style/fuel-receipt-critical' + server.serverStyle, 'link', (sucT, msgT) => {
                                     console.log('Critical css ' + msgT);
                                 });
                             }
@@ -102,27 +102,27 @@ var lAll = ()=>{
         }
     });
 
-
-    jsLoad(server.serverPath +'assets/js/main'+server.serverScript, true, 'body', (sucA,msgA) => {
-        if(sucA)
+    jsLoad('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', true, 'body', (suc, msg) => { 
+        if(suc)
         {
-            if (server.serverPage != "/") {
-                jsLoad(server.serverPath + 'assets/js/fuel-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
-                    if (sucB) {
-                        jsLoad('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', true, 'body', (suc, msg) => { });
+            jsLoad(server.serverPath +'assets/js/main'+server.serverScript, true, 'body', (sucA,msgA) => {
+                if(sucA)
+                {
+                    if (server.serverPage != "/") {
+                        jsLoad(server.serverPath + 'assets/js/fuel-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
+                        
+                        });
                     }
-                });
-            }
-            else {
-                jsLoad(server.serverPath + 'assets/js/generate-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
-                    if (sucB) {
-                        jsLoad('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', true, 'body', (suc, msg) => { });
+                    else {
+                        jsLoad(server.serverPath + 'assets/js/generate-receipt' + server.serverScript, true, 'body', (sucB, msgB) => {
+                       
+                        });
                     }
-                });
-            }
-           
+                }
+            });
         }
     });
+
     
 
 
