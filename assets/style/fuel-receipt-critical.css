@@ -539,6 +539,12 @@ p {
     box-sizing: border-box;
 }
 
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
 :root {
     --logo-c: #4F4F4F;
     --nav-bg: #4F4F4F;
@@ -868,7 +874,6 @@ article.site-title {
     }
 
 }
-
 /* theme end */
 
 #blog-pager,
@@ -1064,17 +1069,13 @@ margin-top:250px;
 
 /* template 2 end*/
 
-/* all page css */
+
 #comments, #blog-pager, .blog-feeds, .post-footer,.date-header, .post-feeds
 {
     display: none;
 }
 
 /* post end */
-
-/* .template-2 > img{
-    display: block;
-} */
 
  .template-2 .bill{
     display: none;

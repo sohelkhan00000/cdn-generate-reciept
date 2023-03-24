@@ -3,6 +3,11 @@
 ::before {
     box-sizing: border-box;
 }
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
 
 :root {
     --logo-c: #4F4F4F;
