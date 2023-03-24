@@ -189,6 +189,12 @@ margin-top:250px;
     transform: rotateX(180deg);
    
 }
+
+.template-2 > img {
+    display: none;
+    width: 260px;
+    margin: 30px auto;
+}
 /* template 2 end*/
 
 /* all page css */
