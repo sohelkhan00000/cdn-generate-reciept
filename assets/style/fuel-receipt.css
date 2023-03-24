@@ -193,7 +193,8 @@ margin-top:250px;
 .template-2 > img {
     display: none;
     width: 260px;
-    margin: 30px auto;
+    height: auto;
+    margin: 0 auto;
 }
 /* template 2 end*/
 

@@ -1058,6 +1058,7 @@ margin-top:250px;
 .template-2 > img {
     display: none;
     width: 260px;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -1077,4 +1078,8 @@ margin-top:250px;
 
 .template-2 .bill{
     display: none;
+}
+
+.bill p{
+    font-size: 12px;
 }
