@@ -1,6 +1,6 @@
 var template ={
     "code" : `    <div class="bill">
-    <img data-tm="fs-logo"  class="fs-logo" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/bharat-petroleum.webp" />
+    <img data-tm="fs-logo"  class="fs-logo" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/pump-logo-bharat-petroleum.webp" />
     <img class="side-logo1" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/side-logo.webp" />
     <img class="side-logo2" src="https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/side-logo.webp" />
     <p class="welcome">WELCOME!!! </p>

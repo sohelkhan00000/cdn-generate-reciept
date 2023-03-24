@@ -355,7 +355,8 @@ var partialLoad = (callback) => {
     if (!found) {
 
         const script = document.createElement('script');
-        script.src = 'https://sohelkhan00000.github.io/cdn-generate-reciept/assets/js/partialPage/partial-fuel-receipt.js';
+        script.src = server.serverPath + 'assets/js/partialPage/partial-fuel-receipt' + server.serverScript;
+       // script.src = 'https://sohelkhan00000.github.io/cdn-generate-reciept/assets/js/partialPage/partial-fuel-receipt.js';
         script.async = true;
 
         script.onload = () => {
