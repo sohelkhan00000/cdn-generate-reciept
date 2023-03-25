@@ -53,11 +53,11 @@ var readyPage = (template) => {
             objErrorControls[i] = document.querySelector("p[data-error=" + i + "]")
         }
 
-        if (document.querySelector("[aria-labelledby=" + i + "]") && i != "template-1" && i != "template-2") {
-            objTemplateControls[i] = document.querySelectorAll("[aria-labelledby=" + i + "]");
+        if (document.querySelector("[data-tm=" + i + "]") && i != "template-1" && i != "template-2") {
+            objTemplateControls[i] = document.querySelectorAll("[data-tm=" + i + "]");
         }
         if (i == "template-1" || i == "template-2") {
-            objTemplateControls[i] = document.querySelector("[aria-labelledby=" + i + "]");
+            objTemplateControls[i] = document.querySelector("[data-tm=" + i + "]");
         }
 
     }
@@ -124,7 +124,7 @@ objFormControls["fs-logo"].forEach(i => i.addEventListener(
         })
 
         objTemplateControls['fs-logo'].forEach((el) => {
-            el.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/" + e.currentTarget.id + ".png";
+            el.src = "https://sohelkhan00000.github.io/cdn-generate-reciept/assets/images/bill/" + e.currentTarget.id + ".webp";
         })
 
     }));
@@ -228,11 +228,9 @@ var checkValidation = (value, type, name, callBack) => {
     }
     else if (type == "Empty") {
         if (value == "") {
-            // EleValidationMassage.innerHTML ="Field cannot be empty!"
             callBack(false, name + " cannot be empty!");
             return false;
         }
-        //EleValidationMassage.innerHTML =""
         callBack(true, name + " validated successfully!");
         return true;
     }
@@ -357,7 +355,8 @@ var partialLoad = (callback) => {
     if (!found) {
 
         const script = document.createElement('script');
-        script.src = 'https://sohelkhan00000.github.io/cdn-generate-reciept/assets/js/partialPage/partial-fuel-receipt.js';
+        script.src = server.serverPath + 'assets/js/partialPage/partial-fuel-receipt' + server.serverScript;
+       // script.src = 'https://sohelkhan00000.github.io/cdn-generate-reciept/assets/js/partialPage/partial-fuel-receipt.js';
         script.async = true;
 
         script.onload = () => {
@@ -384,7 +383,6 @@ objFormControls["download-pdf"].addEventListener("click", () => {
             objFormControls['download-text'].innerHTML = "PDF Generating...";
 
             
-            //const element = document.getElementById(selectedTemplate);
             var options = {
                 jsPDF: {
                     format: 'a4',
@@ -410,9 +408,7 @@ objFormControls["download-pdf"].addEventListener("click", () => {
                 console.log("PDF Error " + err)
             })
         }
-        else{
-            console.log(msg)
-        }
+       
     })
 });
 

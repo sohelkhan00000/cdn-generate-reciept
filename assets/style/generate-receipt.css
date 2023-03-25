@@ -35,7 +35,7 @@
     padding-right: 0px;
     }
 
-#pdfWrapper {
+.receipt-wrapper {
     display: none;
 }
 
@@ -43,6 +43,7 @@
     width: 100%;
     height: auto;
     padding: 10px 20px 10px 20px;
+    /* min-width: 800px; */
 }
 
 .invoice .invoiceWrapper {
@@ -98,16 +99,16 @@
     display: none;
 }
 
-#downloadPDF {
+#download-pdf {
     margin-top: 20px;
     float: right;
 }
 
-#downloadPDF span {
+#download-pdf span {
     pointer-events: none;
 }
 
-#downloadPDF .spinner-grow
+#download-pdf .spinner-grow
 {
     display: none;
 }
@@ -139,13 +140,4 @@ margin: 0px;
     float: right;
     font-size: 12px;
     padding-right: 20px;
-}
-.page-title {
-    color: #1b1e1f;
-    letter-spacing: -1px;
-    font-size: 32px;
-    text-shadow: 0 1px 0 #fff;
-    padding-top: 0px;
-    padding-bottom: 30px;
-    display: block;
 }

@@ -1,8 +1,7 @@
 let moblNav = document.getElementById("nav-links");
 let linkbtn = document.getElementById("linkmblmenu");
-let eleBody = document.getElementsByTagName("body");
-let islazyLoadingDone = false;
 
+<<<<<<< HEAD
 linkbtn.addEventListener("click",()=>{
     moblNav.classList.toggle("d-block");
 });
@@ -31,4 +30,8 @@ function lazyLoading() {
 
 eleBody[0].addEventListener("click", ()=>{
     lazyLoading();
+=======
+linkbtn.addEventListener("click", () => {
+    moblNav.classList.toggle("d-block");
+>>>>>>> 8b0bef559b83d6e519b5c8de0105b64a5fb04d16
 });
