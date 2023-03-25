@@ -485,13 +485,6 @@ input {
 
 }
 
-.btn-success:hover, .btn-success:active, .btn-success:focus-visible {
-    color: var(--comboB-hover-fg);
-    background-color: var(--comboB-hover-bg);
-    border-color: var(--comboB-hover-bg);
-
-}
-
 .form-check-input:checked {
     background-color: var(--main-c);
     border-color: var(--main-c);
@@ -569,16 +562,6 @@ p {
     color: var(--comboB-fg);
     background-color: var(--comboB-bg);
     border-color: var(--comboB-bg);
-
-}
-
-.btn-success:hover,
-.btn-success:active,
-.btn:first-child:active,
-.btn-success:focus-visible {
-    color: var(--comboB-hover-fg);
-    background-color: var(--comboB-hover-bg);
-    border-color: var(--comboB-hover-bg);
 
 }
 
@@ -669,10 +652,6 @@ header {
     speak: none;
 }
 
-.social-icons ul li a:hover {
-    color: var(--comboD-hover-fg);
-}
-
 .social-icons ul li.facebook a:after {
 
     content: "\24D5";
@@ -718,9 +697,6 @@ nav div.nav-mobile {
 
 }
 
-nav div.nav-mobile:hover {
-    background-color: var(--comboB-hover-bg);
-}
 
 nav div.nav-mobile:after {
     content: "\2630";
@@ -744,11 +720,6 @@ nav .nav-links a {
 
 nav .nav-links a:last-child {
     border: 0px;
-}
-
-nav .nav-links a:hover {
-    background-color: var(--comboB-hover-bg);
-    color: var(--comboB-hover-fg);
 }
 
 footer {

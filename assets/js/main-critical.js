@@ -151,6 +151,5 @@ var REle = (filePath, eleName, CB)=>{
 });
 
 window.addEventListener("load", (e) => {
-   // lAll();
    loadGA();
 }, { once: true });
