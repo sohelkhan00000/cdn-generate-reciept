@@ -38,4 +38,16 @@ id : "not medatrory"
 accociate  attrubute : data-error="input id"
 
 
+how to make critical style
+
+1. put bootstrap first
+2. copy paste theme css
+3. copy paste post css
+4. remove all hover property and remove all receipt css for templates
+5. make single media query for theme and post
+6. put modify css saperate in last
+
+
+
+
 

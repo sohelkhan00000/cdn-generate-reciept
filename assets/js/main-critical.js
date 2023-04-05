@@ -64,7 +64,7 @@ var loadGA = () => {
             gtag('js', new Date());
             gtag('config', 'G-907KZKCQJD');
         }
-        console.log('GA ' + msg);
+        //console.log('GA ' + msg);
     });
 }
 
@@ -82,7 +82,7 @@ var lAll = ()=>{
                         cssLoad(server.serverPath + 'assets/style/fuel-receipt' + server.serverStyle, 'head', (sucS, msgS) => {
                             if (sucS) {
                                 REle(server.serverPath + 'assets/style/fuel-receipt-critical' + server.serverStyle, 'link', (sucT, msgT) => {
-                                    console.log('Critical css ' + msgT);
+                                    //console.log('Critical css ' + msgT);
                                 });
                             }
                         });
@@ -92,7 +92,7 @@ var lAll = ()=>{
                         cssLoad(server.serverPath + 'assets/style/generate-receipt' + server.serverStyle, 'head', (sucS, msgS) => {
                             if (sucS) {
                                 REle(server.serverPath + 'assets/style/main-critical' + server.serverStyle, 'link', (sucT, msgT) => {
-                                    console.log('Critical css ' + msgT);
+                                    //console.log('Critical css ' + msgT);
                                 });
                             }
                         });
