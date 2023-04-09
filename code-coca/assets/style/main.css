@@ -466,6 +466,7 @@ p {
     --shade-j : #ffffff4f;
     --shade-black: #000000;
     --shade-white: #ffffff;
+    --shade-link : #d9c1c180;
 
     --page-sidebar-width: 220px;
     --page-nav-h: 70px;
@@ -494,14 +495,18 @@ body {
 pre {
     text-align: left;
 }
+a{
+    color:var(--shade-link);
+}
 
 p.article-para, h2,
 .code-wrapper,
 .site-list {
     margin-bottom: var(--gm-mobile);
 }
-article{
-border-bottom: 1px dashed #5d5f6b
+main article{
+border-bottom: 1px dashed #5d5f6b;
+margin-bottom: var(--gm-mobile);
 }
 
 
@@ -596,6 +601,7 @@ nav {
     height: var(--page-nav-h);
     background-color: var(--shade-c);
     display: none;
+    z-index: 999;
 
 }
 
@@ -669,6 +675,7 @@ p code:after {
     float: right;
     color: var(--shade-i);
     font-size: 12px;
+    padding-top: 5px;
 
 }
 
@@ -712,6 +719,7 @@ footer {
 footer a {
     color: var(--shade-e);
     font-size: 13px;
+    margin-top: var(--gm-mobile);
 }
 
 .search-box {
@@ -773,6 +781,14 @@ footer a {
 
 }
 
+ /* commits section */
+ .comments h4,
+ .comments cite,
+ .comments p,
+ .comments .feed-links {
+     color: var(--shade-e);
+ }
+
 
 
 @media (min-width: 768px) {
@@ -800,6 +816,7 @@ footer a {
     main article {
         padding-left: 12px;
         padding-right: 12px;
+        margin-bottom: var(--gm-pc);
     }
 
     /* main article p.first-para {
@@ -871,5 +888,6 @@ footer a {
 
     footer {
         padding: 15px;
+        margin-top: var(--gm-pc);
     }
 }
