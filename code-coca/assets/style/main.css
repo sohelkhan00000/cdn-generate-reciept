@@ -469,6 +469,8 @@ p {
 
     --page-sidebar-width: 220px;
     --page-nav-h: 70px;
+    --gm-mobile : 30px;
+    --gm-pc : 50px;
 
 }
 
@@ -485,14 +487,24 @@ html {
 
     height: 100%;
 }
+body {
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
 
 pre {
     text-align: left;
 }
 
-p {
-    margin-bottom: 30px;
+p.article-para, h2,
+.code-wrapper,
+.site-list {
+    margin-bottom: var(--gm-mobile);
 }
+article{
+border-bottom: 1px dashed #5d5f6b
+}
+
+
 
 .page-sidebar {
     background-color: var(--shade-d);
@@ -509,6 +521,12 @@ p {
     clear: both;
     display: none;
 }
+.page-sidebar .side-submenu.active {
+    display: block;
+}
+.page-sidebar .side-menu-item.active .side-menu-icon{
+    rotate: -90deg;
+}
 
 
 
@@ -522,17 +540,21 @@ p {
     font-weight: normal;
 }
 
+.page-sidebar  .side-menu-item:last-child {
+    border-bottom: 0;
+}
+
 .page-sidebar h4>span {
 
-    writing-mode: vertical-lr;
+   
     float: right;
     margin-right: 7px;
-    margin-top: 5px;
+   
 
 }
 
 .page-sidebar h4>span:after {
-    content: "\003E";
+    content: "\003C";
 }
 
 .page-sidebar a {
@@ -579,6 +601,7 @@ nav {
 
 main h2 {
     color: var(--shade-h);
+    clear: both;
 
 }
 
@@ -602,10 +625,10 @@ main article .site-list p:before {
     position: absolute;
 }
 
-main article p.first-para {
+/* main article p.first-para {
     padding-top: 20px;
 
-}
+} */
 
 
 i.para-icon {
@@ -675,6 +698,7 @@ header {
     font-size: 23px;
     float: left;
     width: 85%;
+
 }
 
 footer {
@@ -739,13 +763,30 @@ footer a {
 .nav-mobile:after {
     content: "\2630";
 }
+.post-date{
+    color: #d9c1c180;
+    float: left;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    padding: 5px;
+    padding-left: 0px;
+
+}
+
+
 
 @media (min-width: 768px) {
 
-    p,
+    p.article-para, h2,
     .code-wrapper,
     .site-list {
-        margin-bottom: 50px;
+        margin-bottom: var(--gm-pc);
+    }
+
+    .post-date{
+        float: right;
+        margin-top: -15px;
+    
     }
 
     .page-wrapper {
@@ -761,10 +802,10 @@ footer a {
         padding-right: 12px;
     }
 
-    main article p.first-para {
+    /* main article p.first-para {
         padding-top: 50px;
 
-    }
+    } */
 
     main {
         margin-top: 0;
@@ -783,7 +824,8 @@ footer a {
         border-bottom: 1px dashed #ffffff24;
         height: 70px;
         padding-top: 12px;
-        font: 44px, sans-serif;
+        padding-left: 0px;
+        font-family: sans-serif;
         width: 100%;
     }
 

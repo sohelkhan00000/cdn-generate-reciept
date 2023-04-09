@@ -20,10 +20,12 @@ siteSubmenu.forEach((e, i, arr) => {
     e.addEventListener('click', () => {
         siteSubmenu.forEach((el, i, arr) => {
             if (e.id != el.id) {
-                document.querySelector(`[data-tm="${el.id}"]`).classList.remove('d-block')
+                document.querySelector(`[data-tm="${el.id}"]`).classList.remove('active');
+                document.querySelector(`#${el.id}`).classList.remove('active');
             }
         });
-        document.querySelector(`[data-tm="${e.id}"]`).classList.toggle('d-block')
+        document.querySelector(`[data-tm="${e.id}"]`).classList.toggle('active');
+        document.querySelector(`#${e.id}`).classList.toggle('active');
     })
 });
 
@@ -67,7 +69,9 @@ var cssLoad = (filePath, ele, CB) => {
         link.onerror = () => {
             CB(false, 'Error occurred while loading style');
         };
-        document[ele].appendChild(link);
+        //document[ele].insertBefore(link,ele.firstChild )
+        //document[ele].appendChild(link);
+        document[ele].prepend(link);
     }
     else {
         CB(false, 'Style file already exist');
