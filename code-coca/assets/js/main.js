@@ -4,8 +4,8 @@ let siteSubmenu = document.querySelectorAll('.page-sidebar h4');
 
 class pageControls {
     constructor() {
-        this['copy-btn'] = document.querySelector('#copy-btn');
-        this['code-data'] = document.querySelector("#code-data");
+        this['copy-btn'] = document.querySelectorAll('.copy-btn');
+        this['code-data'] = document.querySelectorAll(".code-data");
     }
 }
 
@@ -29,24 +29,22 @@ siteSubmenu.forEach((e, i, arr) => {
     })
 });
 
+pageControlsObj["copy-btn"].forEach((el, index, arr) => {
+    el.addEventListener('click', () => {
+        const cb = navigator.clipboard;
+        cb.writeText(pageControlsObj["code-data"][index].innerText).then(() => {
 
-pageControlsObj["copy-btn"].addEventListener('click', () => {
+            el.innerHTML = '<span class="icon-right"></span> Capied!';
 
-    const cb = navigator.clipboard;
-    cb.writeText(pageControlsObj["code-data"].innerText).then(() => {
+            setTimeout(() => {
+                el.innerHTML = '<span class="icon-copy"></span> Copy code';
+            }, 4000)
 
-        pageControlsObj["copy-btn"].innerHTML = '<span class="icon-right"></span> Capied!';
-
-        setTimeout(() => {
-            pageControlsObj["copy-btn"].innerHTML = '<span class="icon-copy"></span> Copy code';
-        }, 4000)
-
+        });
     });
+});
 
-})
-
-
-var cssLoad = (filePath, ele, CB) => {
+var cssLoad = (filePath, ele, fix, CB) => {
 
     let isExist = false;
     document.querySelectorAll('link').forEach((e) => {
@@ -71,7 +69,13 @@ var cssLoad = (filePath, ele, CB) => {
         };
         //document[ele].insertBefore(link,ele.firstChild )
         //document[ele].appendChild(link);
-        document[ele].prepend(link);
+        if (fix == 'top') {
+            document[ele].prepend(link);
+        }
+        else {
+            document[ele].appendChild(link);
+        }
+
     }
     else {
         CB(false, 'Style file already exist');
@@ -80,8 +84,10 @@ var cssLoad = (filePath, ele, CB) => {
 
 ['focus', 'scroll', 'mousemove', 'touchstart', 'click'].forEach((e) => {
     document.addEventListener(e, () => {
-        cssLoad(server.serverPath + 'code-coca/assets/plugin/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css', 'head', (sucA, msgA) => {
-         //console.log(msgA);
+        cssLoad(server.serverPath + 'code-coca/assets/plugin/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css', 'head', 'top', (sucA, msgA) => {
+            cssLoad(server.serverPath + 'code-coca/assets/style/main' + server.serverStyle, 'head', 'bottom', (sucA, msgA) => {
+                //console.log(msgA);
+            });
         });
     }, { once: true });
 });
