@@ -11,7 +11,7 @@
     --shade-b: #4F4F4F;
     --shade-c: #343541;
     --shade-d: #202123;
-    --shade-e: #ffffff80;
+    --shade-e: #1b030380;
     --shade-f: #40414f;
     --shade-g: #ffffff29;
     --shade-h: #fffffff2;
@@ -25,6 +25,7 @@
     --shade-m : #F26E7A;
     --shade-n : #E0E0E0;
     --shade-o : #EB9F75;
+    --shade-p : #afa8a8;
   
 
     --page-sidebar-width: 220px;
@@ -148,18 +149,18 @@ margin-bottom: var(--gm-mobile);
     border-bottom: 1px dashed #383535;
 }
 .page-sidebar .side-menu a:hover{
-    color: var(--shade-e);
+    color: var(--shade-j);
 }
 
-.page-sidebar .side-menu a::before {
+/* .page-sidebar .side-menu a::before {
     content: '\2192';
     padding-right: 10px;
-}
+} */
 
 .page-wrapper {
 
     padding: 57px 12px 12px 12px;
-    background-color: var(--shade-black);
+    background-color: var(--shade-j);
 }
 
 .page-content {
@@ -283,10 +284,11 @@ footer {
     font-size: 12px;
     color: var(--shade-link);
     margin-top: var(--gm-mobile);
+    display: block;
 }
 
 footer a {
-    color: var(--shade-e);
+    /* color: var(--shade-e); */
     font-size: 13px;
     margin-top: var(--gm-mobile);
 }
@@ -348,6 +350,7 @@ footer a {
     margin-bottom: 15px;
     padding: 5px;
     padding-left: 0px;
+    display: none;
 
 }
 
@@ -359,7 +362,7 @@ footer a {
      color: var(--shade-e);
  }
 
-
+ .comments{display: block;}
 
 @media (min-width: 768px) {
 
@@ -368,22 +371,26 @@ footer a {
     .site-list {
         margin-bottom: var(--gm-pc);
     }
-    p.first-para{
-        margin-left: -44px;
+    main h2 {
+    
+    margin-top: 50px;;
     }
-    main article p.first-para:before {
+    /* p.first-para{
+        margin-left: -44px;
+    } */
+    /* main article p.first-para:before {
 
         content: '\267E';
         display: table-cell;
         font-size: 25px;
-    }
+    } */
     
-    p.article-para span{
+    /* p.article-para span{
         display: table-cell;
         padding-left: 10px;
         vertical-align: top;
         padding-top: 4px;
-    }
+    } */
 
 
     .post-date{

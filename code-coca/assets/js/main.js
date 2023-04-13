@@ -1,24 +1,23 @@
-let moblNav = document.getElementById("side-menu");
-let linkbtn = document.getElementById("nav-mobile");
-let siteSubmenu = document.querySelectorAll('.page-sidebar h4');
-
 class pageControls {
     constructor() {
         this['copy-btn'] = document.querySelectorAll('.copy-btn');
-        this['code-data'] = document.querySelectorAll(".code-data");
+        this['code-data'] = document.querySelectorAll('.code-data');
+        this['nav-mobile'] = document.getElementById('nav-mobile');
+        this['side-menu'] = document.getElementById('side-menu');
+        this['site-sub-menu'] = document.querySelectorAll('.page-sidebar h4');
     }
 }
 
 var pageControlsObj = new pageControls();
 
-linkbtn.addEventListener("click", () => {
-    moblNav.classList.toggle("d-block");
+pageControlsObj['nav-mobile'].addEventListener("click", () => {
+    pageControlsObj['side-menu'].classList.toggle("d-block");
 });
 
 
-siteSubmenu.forEach((e, i, arr) => {
+pageControlsObj['site-sub-menu'].forEach((e, i, arr) => {
     e.addEventListener('click', () => {
-        siteSubmenu.forEach((el, i, arr) => {
+        pageControlsObj['site-sub-menu'].forEach((el, i, arr) => {
             if (e.id != el.id) {
                 document.querySelector(`[data-tm="${el.id}"]`).classList.remove('active');
                 document.querySelector(`#${el.id}`).classList.remove('active');
@@ -29,10 +28,10 @@ siteSubmenu.forEach((e, i, arr) => {
     })
 });
 
-pageControlsObj["copy-btn"].forEach((el, index, arr) => {
+pageControlsObj["copy-btn"].forEach((el, ind, arr) => {
     el.addEventListener('click', () => {
         const cb = navigator.clipboard;
-        cb.writeText(pageControlsObj["code-data"][index].innerText).then(() => {
+        cb.writeText(pageControlsObj["code-data"][ind].innerText).then(() => {
 
             el.innerHTML = '<span class="icon-right"></span> Capied!';
 
@@ -52,7 +51,7 @@ var cssLoad = (filePath, ele, fix, CB) => {
             isExist = true;
             return false;
         }
-    })
+    });
 
     if (!isExist) {
         const link = document.createElement('link');
@@ -81,6 +80,58 @@ var cssLoad = (filePath, ele, fix, CB) => {
         CB(false, 'Style file already exist');
     }
 }
+
+var metaTags = (e, obj, appendto, CB) => {
+
+    document.querySelectorAll(e).forEach((el) => {
+
+        if (Object.keys(obj).length && el.name && el.name != '') {
+            Object.keys(obj).some((ele) => {
+
+                if (ele == el.name) {
+                    delete obj[ele]
+                    isExist = true;
+                    return true;
+                }
+            });
+        }
+
+    });
+
+    Object.keys(obj).some((el) => {
+        const link = document.createElement(e);
+        link.name = el;
+        link.content = obj[el];
+        document[appendto].prepend(link);
+        CB(true, el+' meta tag added');
+    });
+
+}
+
+var htmlTags = (e, obj, appendto, CB) => {
+    if (!document.querySelectorAll(e).length) {
+        const link = document.createElement(e);
+        link.innerHTML = obj.html;
+        document[appendto].prepend(link);
+        CB(true, 'title tag added');
+    }
+    else {
+
+        document.querySelectorAll(e).forEach((el) => {
+            el.innerHTML = obj.html;
+        });
+    }
+}
+
+Object.keys(tags).some((el) => {
+    if (el == 'meta') {
+     
+        metaTags(el, tags[el], 'head', (suc, msg) => {});
+    }
+    else if(el == 'title'){
+        htmlTags(el, tags[el], 'head', (suc, msg) => {});
+    }
+});
 
 ['focus', 'scroll', 'mousemove', 'touchstart', 'click'].forEach((e) => {
     document.addEventListener(e, () => {
