@@ -20,6 +20,11 @@
     --shade-black: #000000;
     --shade-white: #ffffff;
     --shade-link : #d9c1c180;
+    --shade-comment : #437647;
+   
+    --shade-para : #e0dbdb91;
+    --shade-header : #ffffffb8;
+    --shade-code : #999999;
     --shade-k : #2e95d3de;
     --shade-l : #00a67de6;
     --shade-m : #F26E7A;
@@ -60,7 +65,8 @@ a{
 }
 
 code{
-    color: var(--shade-n);
+    color: var(--shade-code);
+    font-size: 18px;
 }
 span.shade-key {
     color: var(--shade-k);
@@ -74,7 +80,7 @@ span.shade-fun {
     color: var(--shade-m);
 }
 span.shade-comment{
-    color: var(--shade-e);
+    color: var(--shade-comment);
 }
 
 p.article-para, h2,
@@ -184,13 +190,13 @@ nav {
 }
 
 main h2 {
-    color: var(--shade-h);
+    color: var(--shade-header);
     clear: both;
 
 }
 
 main article p {
-    color: var(--shade-n);
+    color: var(--shade-para);
     line-height: 30px;
     font-size: 18px;
 }
@@ -216,7 +222,7 @@ main article .site-list p:before {
 }
 
 p code {
-    color: var(--shade-h);
+    color: var(--shade-j);
     font-weight: bolder;
 }
 
@@ -239,7 +245,7 @@ p code:after {
     border: 0;
     background-color: transparent;
     float: right;
-    color: var(--shade-i);
+    color: var(--shade-link);
     font-size: 12px;
     padding-top: 5px;
 
@@ -247,7 +253,7 @@ p code:after {
 
 .code-h span {
 
-    color: var(--shade-i);
+    color: var(--shade-link);
     font-size: 12px;
 }
 
@@ -359,7 +365,7 @@ footer a {
  .comments cite,
  .comments p,
  .feed-links {
-     color: var(--shade-e);
+     color: var(--shade-link);
  }
 
  .comments{display: block;}
@@ -449,7 +455,7 @@ footer a {
         width: calc(100% - var(--page-sidebar-width));
         background-color: var(--shade-a);
         float: right;
-        padding-top: calc(20px + var(--page-nav-h));
+        padding-top: var(--page-nav-h);
         padding-left: 0px;
         padding-right: 0px;
 

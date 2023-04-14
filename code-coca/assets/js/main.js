@@ -123,6 +123,22 @@ var htmlTags = (e, obj, appendto, CB) => {
     }
 }
 
+var REle = (filePath, eleName, CB)=>{
+ 
+    document.querySelectorAll([eleName]).forEach((e) => {
+        if (e.href == filePath) {
+            e.remove();
+            CB(true, 'file removed')
+            return false;
+        }
+        else
+        {
+            CB(false, 'file not found')
+        }
+    })
+ 
+}
+
 Object.keys(tags).some((el) => {
     if (el == 'meta') {
      
@@ -137,7 +153,9 @@ Object.keys(tags).some((el) => {
     document.addEventListener(e, () => {
         cssLoad(server.serverPath + 'code-coca/assets/plugin/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css', 'head', 'top', (sucA, msgA) => {
             cssLoad(server.serverPath + 'code-coca/assets/style/main' + server.serverStyle, 'head', 'bottom', (sucA, msgA) => {
-                //console.log(msgA);
+                REle(server.serverPath + 'code-coca/assets/style/main-critical' + server.serverStyle, 'link', (sucT, msgT) => {
+                    //console.log('Critical css ' + msgT);
+                });
             });
         });
     }, { once: true });
