@@ -139,6 +139,46 @@ var REle = (filePath, eleName, CB)=>{
  
 }
 
+var jsLoad = (filePath, deferType, ele, CB) => {
+
+    let isExist = false;
+    document.querySelectorAll('script').forEach((e) => {
+        if (e.src == filePath) {
+            isExist = true;
+            return false;
+        }
+    })
+
+    if (!isExist) {
+        const script = document.createElement('script');
+        script.src = filePath;
+        script.defer = deferType;
+
+        script.onload = () => {
+            CB(true, 'Script loaded successfuly');
+        };
+        script.onerror = () => {
+            CB(false, 'Error occurred while loading script');
+        };
+        document[ele].appendChild(script);
+    }
+    else {
+        CB(false, 'Script file already exist');
+    }
+}
+
+var loadGA = () => {
+    jsLoad('https://www.googletagmanager.com/gtag/js?id=G-EN1YM5KN31', true, 'head', (suc, msg) => {
+        if (suc) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-EN1YM5KN31');
+        }
+        
+    });
+}
+
 Object.keys(tags).some((el) => {
     if (el == 'meta') {
      
@@ -150,6 +190,7 @@ Object.keys(tags).some((el) => {
 });
 
 ['focus', 'scroll', 'mousemove', 'touchstart', 'click'].forEach((e) => {
+   
     document.addEventListener(e, () => {
         cssLoad(server.serverPath + 'code-coca/assets/plugin/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css', 'head', 'top', (sucA, msgA) => {
             cssLoad(server.serverPath + 'code-coca/assets/style/main' + server.serverStyle, 'head', 'bottom', (sucA, msgA) => {
@@ -160,3 +201,18 @@ Object.keys(tags).some((el) => {
         });
     }, { once: true });
 });
+
+window.addEventListener("load", (e) => {
+    loadGA();
+ }, { once: true });
+
+
+// <!-- Google tag (gtag.js) -->
+// <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN1YM5KN31"></script>
+// <script>
+//   window.dataLayer = window.dataLayer || [];
+//   function gtag(){dataLayer.push(arguments);}
+//   gtag('js', new Date());
+
+//   gtag('config', 'G-EN1YM5KN31');
+// </script>

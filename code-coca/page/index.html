@@ -3,11 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- <meta content="rent slips, rent receipts, free rent slips, free rent receipts" name="keywords">
+     <meta content="free rent receipts without login and email, just fill the form and get PDF receipt" name="description"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- <title>Document</title> -->
+    <link rel="icon" type="image/x-icon" href="http://127.0.0.1:5500/code-coca/assets/images/favicon.ico">
+   
     <!-- <link rel="stylesheet" type="" href="http://127.0.0.1:5500/code-coca/assets/plugin/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" /> -->
-    <link rel="stylesheet" type="" href="http://127.0.0.1:5500/code-coca/assets/style/main.css" />
+    <link rel="stylesheet" type="" href="http://127.0.0.1:5500/code-coca/assets/style/main-critical-min.css" />
+    <!-- <link rel="stylesheet" type="" href="https://sohelkhan00000.github.io/cdn-generate-reciept/code-coca/assets/style/main-critical.css" /> -->
 
     <!-- <link rel="stylesheet" type="" href="https://sohelkhan00000.github.io/cdn-generate-reciept/code-coca/assets/style/main-min.css" /> -->
 
@@ -30,7 +36,8 @@
             
                 <div class="page-sidebar" >
                     <header>
-                        Code Coca
+                        <a href='#' title="Home">Code Coca</a>
+                        
                         <!-- Retirement Solutions -->
                     </header>
                     <div class="nav-mobile" id="nav-mobile">
@@ -38,18 +45,18 @@
                     <div class="side-menu" id="side-menu">
                         <h4 id="side-menu-js" class="side-menu-item active">Java Script <span class="side-menu-icon"></span></h4>
                         <div data-tm="side-menu-js" class="side-submenu active">
-                            <a href="#">functions</a>
-                            <a href="#">Loops</a>
+                            <a href="#">How to get parameters value in google app script</a>
+                            <a href="#">How to get parameters value in google app script</a>
                             <a href="#">Array</a>
-                            <a href="#">object</a>
+                            <a href="#">variables </a>
                         </div>
-                        <h4 id="side-menu-css" class="side-menu-item">CSS <span class="side-menu-icon "></span></h4>
+                        <!-- <h4 id="side-menu-css" class="side-menu-item">CSS <span class="side-menu-icon "></span></h4>
                         <div data-tm="side-menu-css" class="side-submenu" >
                             <a href="#">Position static</a>
                             <a href="#">Shodow property</a>
                             <a href="#">Border radius</a>
                             <a href="#">Flot  divs</a>
-                        </div>
+                        </div> -->
                
                     </div>
      
@@ -61,50 +68,111 @@
                 <div class="page-content">
                     <nav>
                        <div class="search-box">
-                        <textarea rows="1" placeholder="Search..."></textarea>
-                        <button>&#128269;</button>
+                        <textarea for="btn-search" rows="1" placeholder="Search"></textarea>
+                        <button id="btn-search">&#128269;</button>
                        </div>
                     </nav>
                     <main>
+                        <script>
+                            var tags = {
+                                    meta: {
+                                        keywords: 'get parameter value in app script',
+                                        description: 'parameters value in google app script'
+                                      
+                                    },
+                                    title: {
+                                        html : 'How to get parameters value in google app script'
+                                    }
+                                   
+                                }
+                        </script>
                         <section>
                             <span class="post-date"> Posted on : <span>3, April</span></span>
                            
-                            <h2>How to create table in mysql</h2>
+                            <h2>How to get parameters value in google app script</h2>
                             <article>
                                 <!-- hide this heading if required -->
                              
                                 
                                 <p class="first-para article-para">
 
-                                  <i class="para-icon">&#9854;</i> To create a table in MySQL, you can use the <code>CREATE TABLE</code> statement. Here is an example syntax.
+                                  <span>To get parameters in Google Apps Script, you can use the <code>doGet()</code> or <code>doPost()</code> function, which are called when your script is accessed via a GET or POST request.</span>
                                     
                                 </p>
+
+                                <p class="article-para">
+                                    Here's an example of how to get parameters from a GET request:
+                                </p>
                                 <div class="code-wrapper">
-                                    <div class="code-h"><span>App Script</span> <button id="copy-btn"><span class="icon-copy"></span> Copy code</button></div>
+                                    <div class="code-h"><span>App Script</span> <button class="copy-btn"><span class="icon-copy"></span> Copy code</button></div>
                                     <div class="code-b">
-                                        <p id="code-data">
-                                            npm install prisma --save
-                                        </p>
+                                        <code class="code-data">
+
+                                            <span class="shade-key">function</span> <span class='shade-fun'>doGet(e)</span> { <br />
+                                                <span class='shade-key'>var</span> param1 = e.parameter.param1; <br />
+                                                <span class='shade-key'>var</span> param2 = e.parameter.param2; <br />
+                                                Method :<span class="shade-string">"POST"</span>
+                                                <span class='shade-comment'>// Do something with the parameters </span><br />
+                                              }
+                                              
+                                        </code>
                                     </div>
                                  
                                 </div>
 
                                 <p class="article-para">
-                                    Here is a breakdown of the syntax:
+                                    In this example, we're using the <code>doGet()</code> function, which takes a single parameter (<code>e</code>) that contains information about the request.
                                 </p>
-                                <div class="site-list">
-                                    <p><code>CREATE TABLE</code> is the statement used to create a new table.</p>
-                                    <p><code>table_name</code> is the name of the table you want to create.</p>
-                                    <p><code>column1</code>, <code>column2</code>, <code>column3</code>, <code>columnN</code> are the names of the columns in the table.</p>
+                                <p class="article-para">
+                                    To get the parameters, we access the <code>parameter</code> property of the <code>e</code> object and use the parameter names as keys to retrieve their values. In this case, we're assuming that the parameters are named <code>param1</code>
+                                     and <code>param2.</code>
+                                </p>
+                                <p class="article-para">
+                                    You can also get parameters from a POST request using the <code>doPost()</code> function:
+                                </p>
+
+                                <div class="code-wrapper">
+                                    <div class="code-h"><span>App Script</span> <button class="copy-btn"><span class="icon-copy"></span> Copy code</button></div>
+                                    <div class="code-b">
+                                        <code class="code-data">
+
+                                            <span class="shade-key">function</span> <span class='shade-fun'>doPost(e)</span> { <br />
+                                                <span class='shade-key'>var</span> param1 = e.parameter.param1; <br />
+                                                <span class='shade-key'>var</span> param2 = e.parameter.param2; <br />
+                                                
+                                                <span class='shade-comment'>// Do something with the parameters </span><br />
+                                              }
+                                              
+                                        </code>
+                                    </div>
+                                 
                                 </div>
+
+                                <p class="article-para">
+                                    The main difference here is that we're using the <code>parameters</code> property of the <code>e</code> object instead of <code>parameter</code>. The <code>parameters</code> property contains an array of values for each parameter, which is why we're not using keys to retrieve the values.
+                                </p>
+                          
+
+                                <!-- <code></code>
+<span class='shade-key'></span>
+<span class='shade-string'></span>
+<span class='shade-fun'></span>
+<span class='shade-string'></span>
+<span class='shade-comment'></span>
+<p class="article-para"></p>
+<div class="site-list"></div> -->
                             </article>
                         </section>
+                        <!-- <div class="commit">
+                            <p > this is commits data</p>
+                    </div> -->
                     </main>
                     <aside class="d-none">
     
-                    </aside>
+                    </aside> 
+            
                     <footer>
-                        Copyright © 2023. Powered by  <a href="#">Generate Receipt</a>
+                        Copyright © 2023. Powered by  <a href="https://codecoca.blogspot.com">Code Coca</a>
                     </footer>
                 </div>
 
