@@ -475,7 +475,7 @@ p {
     --shade-black: #000000;
     --shade-white: #ffffff;
     --shade-link : #d9c1c180;
-    --shade-comment : #437647;
+    --shade-comment : #eb9f97b0;
    
     --shade-para : #e0dbdb91;
     --shade-header : #ffffffb8;
@@ -962,8 +962,7 @@ main article p, p code, .page-sidebar .side-menu a, .code-h span, .code-h button
 }
 
 span.shade-comment{
-    color:var(--shade-l);
-   
+    color: #EB9F75;
 }
 
 @media (min-width: 768px) {
