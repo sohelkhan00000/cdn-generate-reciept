@@ -203,7 +203,7 @@ Object.keys(tags).some((el) => {
 });
 
 window.addEventListener("load", (e) => {
-    //loadGA();
+    loadGA();
  }, { once: true });
 
 
