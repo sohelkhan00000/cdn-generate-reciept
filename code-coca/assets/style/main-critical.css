@@ -977,7 +977,9 @@ main article p, p code, .page-sidebar .side-menu a, .code-h span, .code-h button
 .page-sidebar h4 {
     color: #EB9F97;
 }
-
+main article .article-note{
+    color: #EB9F75;
+}
 span.shade-comment{
     color: #EB9F75;
 }
