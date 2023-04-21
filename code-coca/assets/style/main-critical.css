@@ -538,7 +538,7 @@ span.shade-comment{
     color: var(--shade-comment);
 }
 
-p.article-para, h2,
+p.article-para, h2, .article-head,
 .code-wrapper,
 .site-list {
     margin-bottom: var(--gm-mobile);
@@ -654,6 +654,16 @@ main article p {
     color: var(--shade-para);
     line-height: 30px;
     font-size: 18px;
+}
+main article .article-note {
+    background-color: var(--shade-d);
+    color: var(--shade-comment);
+    padding: 25px;
+}
+main article .article-head {
+    color:  var(--shade-header);
+    font-weight: normal;
+    font-size: 1.5rem;
 }
 
 main article .site-list {
@@ -827,10 +837,13 @@ footer a {
 
 @media (min-width: 768px) {
 
-    p.article-para, h2,
+    p.article-para, h2, .article-head,
     .code-wrapper,
     .site-list {
         margin-bottom: var(--gm-pc);
+    }
+    main article .article-note {
+        padding: 50px;
     }
     main h2 {
     
